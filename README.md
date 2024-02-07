@@ -14,6 +14,6 @@ View online demo [here](https://datit-026.github.io/Win95WebProject/)
 Please feel free to contact me through these channels.
 
 ### License
-<p>Many thanks to [Victor Ribeiro](https://github.com/victorqribeiro/fos)</p>
+Many thanks to [Victor Ribeiro](https://github.com/victorqribeiro/fos).
 
 This project is licensed under the [MIT License](LICENSE).
