@@ -1,4 +1,4 @@
-### Portfolio Win95 Website Project Completed ✔
+# Portfolio Win95 Website Project Completed ✔
 
 ## This repository is made by DatIT
 
@@ -8,6 +8,6 @@ This project aims to provide GitHub users with an enhanced portfolio creation ex
 ## Contact us
 - Email: tiendatha2006@gmail.com
 
-# License
+### License
 Many thanks to Victor Ribeiro: https://github.com/victorqribeiro/fos
 This project is licensed under the [MIT License](LICENSE).
