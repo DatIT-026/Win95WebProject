@@ -12,5 +12,3 @@ Please feel free to contact me through these channels.
 
 ### License
 <p>Many thanks to Victor Ribeiro: https://github.com/victorqribeiro/fos</p>
-
-This project is licensed under the [MIT License](LICENSE).
