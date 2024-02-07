@@ -8,4 +8,5 @@ This is my experiment of webcomponents. I came up with this awesome idea and cre
 
 ### License
 <p>Many thanks to Victor Ribeiro: https://github.com/victorqribeiro/fos</p>
+
 This project is licensed under the [MIT License](LICENSE).
