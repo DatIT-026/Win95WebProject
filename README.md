@@ -7,5 +7,5 @@ This is my experiment of webcomponents. I came up with this awesome idea and cre
 - Email: tiendatha2006@gmail.com
 
 ### License
-Many thanks to Victor Ribeiro: https://github.com/victorqribeiro/fos
-This project is licensed under the [MIT License](LICENSE).
+<p>Many thanks to Victor Ribeiro: https://github.com/victorqribeiro/fos</p>
+<p>This project is licensed under the [MIT License](LICENSE).</p>
