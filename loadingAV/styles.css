@@ -1,0 +1,133 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #c0c0c0; /* Vintage Windows 95 color */
+  text-align: center;
+}
+
+h1 {
+  color: #000;
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.button-container {
+  margin-top: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  margin: 0 10px;
+  border: 2px solid #000;
+  background-color: #f0f0f0; /* Vintage Windows 95 color */
+  color: #000;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.title button{
+  /*position:absolute;
+  right:3px;
+  top:3px;*/
+  margin:2px 2px 2px 0;
+  float:right;
+  width:14px;
+  height:13.5px;
+  background:#C0C0C0;
+  border-width:1px;
+  border-color:#FFFFFF #808080 #808080 #FFFFFF;
+  padding:0;
+  font-size:9px;
+  font-weight:bold;
+  font-family:Tahoma;
+  text-align:center;
+  focus:none;
+}
+div.body{
+  padding:13px 12px 12px;
+  height:100%;
+  width:calc(100% - 26px);
+  display:inline-block;
+}
+
+button:hover {
+  background-color: #dcdcdc; /* Vintage Windows 95 color */
+}
+
+.progress-container {
+  margin-top: 20px;
+  background-color: #dcdcdc; /* Vintage Windows 95 color */
+  border: 2px solid #000;
+}
+
+.progress-bar {
+  width: 0%;
+  height: 20px;
+  background-color: #008080; /* Vintage Windows 95 color */
+  transition: width 0.5s ease-in-out;
+}
+
+.alert-box {
+  margin-top: 20px;
+  padding: 10px;
+  color: #000;
+  border: 2px solid #000;
+  display: none;
+}
+
+
+ :root {
+  /* Color */
+  --text-color: #222222;
+  --surface: #c0c0c0;
+  --button-highlight: #ffffff;
+  --button-face: #dfdfdf;
+  --button-shadow: #808080;
+  --window-frame: #0a0a0a;
+  --dialog-blue: #000080;
+  --dialog-blue-light: #1084d0;
+  --dialog-gray: #808080;
+  --dialog-gray-light: #b5b5b5;
+  --link-blue: #0000ff;
+
+
+  /* Borders */
+  --border-width: 1px;
+  --border-raised-outer: inset -1px -1px var(--window-frame),
+    inset 1px 1px var(--button-highlight);
+  --border-raised-inner: inset -2px -2px var(--button-shadow),
+    inset 2px 2px var(--button-face);
+  --border-sunken-outer: inset -1px -1px var(--button-highlight),
+    inset 1px 1px var(--window-frame);
+  --border-sunken-inner: inset -2px -2px var(--button-face),
+    inset 2px 2px var(--button-shadow);
+
+}
+
+body {
+  font-family: Arial;
+  font-size: 12px;
+  color: var(--text-color);
+}
+
+button,
+li[role=tab] {
+  font-family: "Pixelated MS Sans Serif", Arial;
+  -webkit-font-smoothing: none;
+  font-size: 13px;
+}
+
+button,
+input[type="submit"],
+input[type="reset"] {
+  box-sizing: border-box;
+  border: none;
+  color: transparent;
+  text-shadow: 0 0 var(--text-color);
+  background: var(--surface);
+  box-shadow: var(--border-raised-outer), var(--border-raised-inner);
+  border-radius: 0;
+
+  min-width: 85px;
+  min-height: 33px;
+  padding: 0 12px;
+}
