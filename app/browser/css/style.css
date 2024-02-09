@@ -8,7 +8,7 @@ body, html {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  height: 88%;
 }
 
 .main {
@@ -16,7 +16,7 @@ body, html {
 }
 
 .logo img {
-  width: 170px;
+  width: 200px;
 }
 
 .bottom {
@@ -27,7 +27,7 @@ body, html {
 .box {
   background-color: #7EE5DA;
   width: 40%;
-  padding: 10px;
+  padding: 20px;
   margin: 10px;
 }
 
