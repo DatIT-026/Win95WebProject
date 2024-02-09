@@ -62,7 +62,7 @@ button:hover {
 .progress-bar {
   width: 0%;
   height: 20px;
-  background-color: #008080; /* Vintage Windows 95 color */
+  background-color: #00007b; /* Vintage Windows 95 color */
   transition: width 0.5s ease-in-out;
 }
 

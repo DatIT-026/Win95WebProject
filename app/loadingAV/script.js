@@ -9,7 +9,7 @@ function scan() {
 
   // Ensure progress bar is reset before starting
   progressBar.style.width = "0%";
-  progressBar.style.backgroundColor = "#008080"; // Set initial color
+  progressBar.style.backgroundColor = "#00007b"; // Set initial color
   scanInProgress = true; // Set flag to indicate scan is in progress
 
   // Simulate scanning process
