@@ -1,4 +1,4 @@
-# Portfolio Win95 Website Project Completed ✔
+# Portfolio Windows 95 Website Project Completed ✔
 
 ![win95](win95.png)
 
