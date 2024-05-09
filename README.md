@@ -10,6 +10,7 @@ View online demo [here](https://datit-026.github.io/Win95WebProject/)
 
 ## Contact us
 - Email: tiendatha2006@gmail.com
+- Social Media: [Facebook](https://www.facebook.com/datit.dev/)
 
 Please feel free to contact me through these channels.
 
