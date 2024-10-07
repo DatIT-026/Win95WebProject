@@ -21,7 +21,7 @@ function scan() {
     if (progress >= 100) {
       clearInterval(interval); // Stop the interval when scanning is complete
       progressBar.style.backgroundColor = "red"; // Remove color after scan
-      showFakeAlert("Something Went Wrond! 97 viruses found!");
+      showFakeAlert("Something Went Wrong! 97 viruses found!");
       scanInProgress = false; // Reset flag after scan is complete
       progressBar.style.width = "0%"; // Reset progress bar width
     }
