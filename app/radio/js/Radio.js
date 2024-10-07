@@ -3,11 +3,10 @@ class Radio {
 	constructor(){
 		this.player = new Audio();
 		this.playlist = [
-      {name: 'Lemon Tree - Fool❜s Garden', slug: 'LemonTree', src: '././radio-file/Lemon-Tree.mp3'},
-      {name: 'Never Gonna Give You Up - Rick Astley', slug: 'NGGYU', src: '././radio-file/Never_Gonna_Give_You_Up_Rick_Astley.mp3'},
-	  {name: 'Fade - Alan Walker', slug: 'fade', src: '././radio-file/AlanWalker-Fade.mp3'},
-	  {name: 'Spectre - Alan Walker', slug: 'Spectre', src: '././radio-file/AlanWalker-Spectre.mp3'},
-	  {name: 'All Fall Down - ft. Noah Cyrus & Digital Farm Animals', slug: 'AFD', src: '././radio-file/AlanWalker-All_Falls_Down.mp3'}
+      {name: 'Tổng Hợp Nhạc của anh Jack', slug: 'J97', src: '././radio-file/J97-Songs.mp3'},
+	  {name: 'Tổng Hợp Nhạc của anh Jack', slug: 'J97', src: '././radio-file/J97-Songs.mp3'},
+	  {name: 'Tổng Hợp Nhạc của anh Jack', slug: 'J97', src: '././radio-file/J97-Songs.mp3'},
+
 		];
 		this.player.src = this.playlist[0].src;
 		this.player.preload = 'auto';
