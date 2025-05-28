@@ -81,7 +81,7 @@ fos-menu[name=Start] {
     background-color: #fff;
     border: solid 1px #000;
     width: 70px;
-    text-align: left
+    text-align: left;
 }
 
 fos-icon {
@@ -213,4 +213,109 @@ fos-menu::part(window) {
     background-blend-mode: multiply;
     z-index: 9999;
     pointer-events: none;
+}
+
+.viewer > img {
+    max-width: 100% !important;
+    max-height: 650px !important;
+    width: auto !important;
+    height: auto !important;
+    object-fit: contain !important;
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.viewer {
+    height: auto !important;
+}
+
+@media (max-width: 680px) {
+    fos-window,
+    fos-icon,
+    fos-bar {
+        box-shadow: none !important;
+        text-shadow: none !important;
+        filter: none !important;
+    }
+
+  fos-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 11000 !important;
+  }  
+  fos-window[name="browser"] {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: calc(100vh - 43.5px) !important;
+    max-width: 100% !important;
+    max-height: calc(100% - 43.5px) !important;
+    z-index: 10000 !important;
+    transform: none !important;
+    overflow: auto !important;
+  }
+
+  fos-window[name="browser"] iframe {
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  fos-window[name="aboutme"] {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: calc(100vh - 43.5px) !important;
+    max-width: 100% !important;
+    max-height: calc(100% - 43.5px) !important;
+    z-index: 10000 !important;
+    transform: none !important;
+    overflow: auto !important;
+  }
+
+  fos-window[name="aboutme"] iframe {
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  fos-window[name="thispc"] {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: calc(280px) !important;
+    max-width: 100% !important;
+    max-height: calc(100%) !important;
+    z-index: 10000 !important;
+    transform: none !important;
+    overflow: auto !important;
+  }
+
+  fos-window[name="thispc"] iframe {
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  fos-window[name="radio"] {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: calc(300px) !important;
+    max-width: 100% !important;
+    max-height: calc(100%) !important;
+    z-index: 10000 !important;
+    transform: none !important;
+    overflow: auto !important;
+  }
+
+  fos-window[name="radio"] iframe {
+    width: 100% !important;
+    height: 100% !important;
+  }
+  
 }

@@ -1,6 +1,6 @@
 body {
   font-family: 'Arial', sans-serif;
-  background-color: #c0c0c0; /* Vintage Windows 95 color */
+  background-color: #c0c0c0;
   text-align: center;
 }
 
@@ -18,7 +18,7 @@ button {
   padding: 10px 20px;
   margin: 0 10px;
   border: 2px solid #000;
-  background-color: #f0f0f0; /* Vintage Windows 95 color */
+  background-color: #f0f0f0;
   color: #000;
   cursor: pointer;
   font-size: 16px;
@@ -50,19 +50,19 @@ div.body{
 }
 
 button:hover {
-  background-color: #dcdcdc; /* Vintage Windows 95 color */
+  background-color: #dcdcdc;
 }
 
 .progress-container {
   margin-top: 20px;
-  background-color: #dcdcdc; /* Vintage Windows 95 color */
+  background-color: #dcdcdc;
   border: 2px solid #000;
 }
 
 .progress-bar {
   width: 0%;
   height: 20px;
-  background-color: #00007b; /* Vintage Windows 95 color */
+  background-color: #00007b;
   transition: width 0.5s ease-in-out;
 }
 

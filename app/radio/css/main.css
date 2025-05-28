@@ -76,3 +76,9 @@ select {
 	-webkit-appearance:none; /* Safari and Chrome */
 	appearance:none;
 }
+
+@media (max-width: 680px) {
+	#playlist {
+		width: 80%;
+	}
+}
