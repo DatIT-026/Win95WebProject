@@ -12,10 +12,11 @@ body, html {
 .container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  min-height: 88vh;
-  padding: 10px;
+  min-height: 100vh;
+  padding: 20px;
+  width: 100%;
 }
 
 .main {
@@ -35,9 +36,11 @@ body, html {
 
 .box {
   background-color: #7EE5DA;
-  width: 40%;
+  width: 100%;          
+  max-width: 600px;     
   padding: 20px;
   margin: 10px;
+  box-shadow: 3px 3px 0px rgba(0,0,0,0.2); 
 }
 
 ul {
@@ -102,6 +105,7 @@ a:hover {
     width: 90%;
     margin: 10px auto;
     padding: 15px;
+    max-width: none;
   }
 
   #notification {
