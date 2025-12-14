@@ -2,606 +2,315 @@
 <html lang="en">
 
 <head>
-	<title> Windows 95 - Version 1.6.5.0 </title>
-	<meta charset="utf-8">
-	<!--<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">-->
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="mobile-web-app-capable" content="yes">
-	<meta property="og:url" content="https://datit-026.github.io/DatIT/" />
-	<meta property="og:type" content="article" />
-	<meta property="og:title" content="DatIT" />
-	<meta property="og:author" content="DatIT" />
-	<meta property="og:description" content="Personal website" />
-	<meta property="og:image:width" content="1280" />
-	<meta property="og:image:height" content="640" />
-	<link rel="icon" href="favicon.png" sizes="256x256" />
-	<link rel="shortcut icon" href="img/ico/favicon1.png">
-	<link rel="preload" as="image" href="bg.png">
-	<link rel="stylesheet" type="text/css" href="css/main.min.css" />
-	<script src="js/fos.min.js"></script>
+    <title> Windows 95 - Version 1.6.5.0 </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta property="og:url" content="https://datit-026.github.io/DatIT/" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="DatIT" />
+    <meta property="og:author" content="DatIT" />
+    <meta property="og:description" content="Personal website" />
+    <meta property="og:image:width" content="1280" />
+    <meta property="og:image:height" content="640" />
+    <link rel="icon" href="favicon.png" sizes="256x256" />
+    <link rel="preload" as="image" href="bg.png">
+    <link rel="stylesheet" type="text/css" href="css/main.min.css" />
+    <script src="js/fos.min.js"></script>
 </head>
 
 <body>
-	<fos-desktop id="mainDesktop">
-		<fos-bar>
-			<fos-menu name="Start">
-				<div style="min-width: 150px">Menu (1.6.5.0)</div>
-				<hr>
-				<fos-menu-item href="thispc"><img src="img/thispc.png">PC Care</fos-menu-item>
-				<fos-menu-item href="aboutme"><img src="img/artage-io-48161_1588129131.png">About</fos-menu-item>
-				<fos-menu-item href="games"><img src="img/artage-io-48167_1588399863.png">Games</fos-menu-item>
-				<fos-menu-item href="radio"><img src="img/artage-io-48153_1588474190.png">Radio</fos-menu-item>
-				<!-- <fos-menu-item href="art3d"><img src="img/artage-io-48145_1588129590.png">Hot Girl</fos-menu-item> -->
-			</fos-menu>
-			<div id="clock"></div>
-		</fos-bar>
-		<fos-icon href="thispc" name="PC Care">
-			<img src="img/thispc.png" alt="PC Care" title="PC Care">
-		</fos-icon>
-		<fos-icon href="aboutme" name="About">
-			<img src="img/artage-io-48161_1588129131.png" alt="About Me" title="About Me">
-		</fos-icon>
-		<fos-icon href="games" name="Games">
-			<img src="img/artage-io-48167_1588399863.png" alt="Games" title="Games">
-		</fos-icon>
-		<fos-icon href="radio" name="Radio">
-			<img src="img/artage-io-48153_1588474190.png" alt="Radio" title="Radio">
-		</fos-icon>
-		<fos-icon href="art3d" name="Images">
-			<img src="img/artage-io-48145_1588129590.png" alt="3D Art" title="3D Art">
-		</fos-icon>
-		<fos-icon href="browser" name="Browser">
-			<img src="img/browser.png" alt="Browser" title="Browser">
-		</fos-icon>
+    <fos-desktop id="mainDesktop">
+        <fos-bar>
+            <fos-menu name="Start">
+                <div style="min-width: 150px">Menu (1.6.5.0)</div>
+                <hr>
+                <fos-menu-item href="thispc"><img src="img/thispc.png">PC Care</fos-menu-item>
+                <fos-menu-item href="aboutme"><img src="img/artage-io-48161_1588129131.png">About</fos-menu-item>
+                <fos-menu-item href="games"><img src="img/artage-io-48167_1588399863.png">Games</fos-menu-item>
+                <fos-menu-item href="radio"><img src="img/artage-io-48153_1588474190.png">Radio</fos-menu-item>
+            </fos-menu>
+            <div id="clock"></div>
+        </fos-bar>
+        <fos-icon href="thispc" name="PC Care">
+            <img src="img/thispc.png" alt="PC Care" title="PC Care">
+        </fos-icon>
+        <fos-icon href="aboutme" name="About">
+            <img src="img/artage-io-48161_1588129131.png" alt="About Me" title="About Me">
+        </fos-icon>
+        <fos-icon href="games" name="Games">
+            <img src="img/artage-io-48167_1588399863.png" alt="Games" title="Games">
+        </fos-icon>
+        <fos-icon href="radio" name="Radio">
+            <img src="img/artage-io-48153_1588474190.png" alt="Radio" title="Radio">
+        </fos-icon>
+        <fos-icon href="art3d" name="Images">
+            <img src="img/artage-io-48145_1588129590.png" alt="3D Art" title="3D Art">
+        </fos-icon>
+        <fos-icon href="browser" name="Browser">
+            <img src="img/browser.png" alt="Browser" title="Browser">
+        </fos-icon>
 
-		<fos-window name="thispc" title="PC Care" style="width: 375px; height: 275px;">
-			<iframe src="app/loadingAV/AV.htm"
-				style="width: 100%; height: 100%; border: none; display: block;"></iframe>
-		</fos-window>
+        <fos-window name="thispc" title="PC Care" style="width: 375px; height: 275px;">
+            <iframe src="app/loadingAV/AV.htm"
+                style="width: 100%; height: 100%; border: none; display: block;"></iframe>
+        </fos-window>
 
-		<fos-window name="browser" title="Browser">
-			<style>
-				fos-window[name="browser"] {
-					width: 750px;
-					height: 550px;
+        <fos-window name="browser" title="Browser">
+            <div class="browser-layout">
+                <div id="browser-toolbar">
+                    <button class="nav-btn" onclick="goBack()" title="Back">◄</button>
+                    <button class="nav-btn" onclick="reloadPage()" title="Reload">↻</button>
+                    <button class="nav-btn" onclick="goHome()" title="Home">🏠</button>
 
-					min-width: 320px;
-					min-height: 400px;
-				}
+                    <div id="url-wrapper">
+                        <span style="color: #888; font-size: 12px;">🌎</span>
+                        <input type="text" id="url-input" value="https://google.com"
+                            onkeypress="if(event.key==='Enter') navigateToUrl()">
+                    </div>
 
-				.browser-layout {
-					display: flex;
-					flex-direction: column;
-					height: 100%;
-					background-color: #fff;
-				}
+                    <button class="go-btn" onclick="navigateToUrl()">Go</button>
+                </div>
 
-				#browser-toolbar {
-					flex: 0 0 auto;
-					background: linear-gradient(to bottom, #dae4f5 0%, #bed0ea 100%);
-					padding: 6px 8px;
-					border-bottom: 1px solid #999;
-					display: flex;
-					gap: 6px;
-					align-items: center;
-					font-family: 'Segoe UI', Tahoma, sans-serif;
-					flex-wrap: wrap;
-				}
+                <iframe id="browser-frame" frameborder="0" src="app/browser/index.html" allowfullscreen="yes"></iframe>
+            </div>
+        </fos-window>
 
-				#browser-frame {
-					flex: 1 1 auto;
-					width: 100%;
-					border: none;
-					display: block;
-					background: white;
-				}
+        <script>
+            // Browser Logic
+            const goBack = () => {
+                try {
+                    const frame = document.getElementById('browser-frame');
+                    if (frame.contentWindow.history.length > 1) {
+                        frame.contentWindow.history.back();
+                    } else {
+                        frame.src = 'app/browser/index.html';
+                    }
+                } catch (e) {
+                    document.getElementById('browser-frame').src = 'app/browser/index.html';
+                }
+            };
 
-				.nav-btn {
-					background: transparent;
-					border: 1px solid transparent;
-					border-radius: 2px;
-					cursor: pointer;
-					font-size: 16px;
-					color: #333;
-					width: 28px;
-					height: 28px;
-					display: flex;
-					align-items: center;
-					justify-content: center;
-				}
+            const reloadPage = () => {
+                try {
+                    const frame = document.getElementById('browser-frame');
+                    const currentSrc = frame.src;
+                    frame.src = 'about:blank';
+                    setTimeout(() => { frame.src = currentSrc; }, 10);
+                } catch (e) {
+                    const frame = document.getElementById('browser-frame');
+                    frame.src = frame.src;
+                }
+            };
 
-				.nav-btn:hover {
-					background: linear-gradient(to bottom, #fff, #e6e6e6);
-					border: 1px solid #999;
-				}
+            const goHome = () => {
+                document.getElementById('browser-frame').src = 'app/browser/index.html';
+            };
 
-				#url-wrapper {
-					flex-grow: 1;
-					display: flex;
-					align-items: center;
-					background: #fff;
-					border: 1px solid #7e9bbd;
-					border-radius: 3px;
-					padding: 2px 4px;
-					height: 24px;
-					min-width: 150px;
-				}
+            const navigateToUrl = () => {
+                const urlInput = document.getElementById('url-input');
+                const frame = document.getElementById('browser-frame');
+                let url = urlInput.value.trim();
 
-				#url-input {
-					border: none;
-					outline: none;
-					width: 100%;
-					font-family: 'Segoe UI', Tahoma, sans-serif;
-					font-size: 13px;
-					margin-left: 4px;
-				}
+                if (!url) { alert('Please enter a URL'); return; }
 
-				.go-btn {
-					margin-left: 4px;
-					background: linear-gradient(to bottom, #f5fcf0, #dcebc9);
-					border: 1px solid #94b168;
-					border-radius: 2px;
-					color: #4e7518;
-					font-weight: bold;
-					font-size: 11px;
-					padding: 0 8px;
-					height: 26px;
-					cursor: pointer;
-				}
-			</style>
+                if (!url.startsWith('http://') && !url.startsWith('https://') && !url.startsWith('app/')) {
+                    frame.src = url.startsWith('//') ? 'https:' + url : 'https://' + url;
+                    return;
+                }
+                frame.src = url;
+            };
 
-			<div class="browser-layout">
-				<div id="browser-toolbar">
-					<button class="nav-btn" onclick="goBack()" title="Back">◄</button>
-					<button class="nav-btn" onclick="reloadPage()" title="Reload">↻</button>
-					<button class="nav-btn" onclick="goHome()" title="Home">🏠</button>
+            document.addEventListener('DOMContentLoaded', () => {
+                const urlInput = document.getElementById('url-input');
+                if (document.getElementById('browser-frame') && urlInput) {
+                    urlInput.value = 'http://www.google.com/';
+                    urlInput.addEventListener('keypress', (e) => {
+                        if (e.key === 'Enter') navigateToUrl();
+                    });
+                }
+            });
+        </script>
 
-					<div id="url-wrapper">
-						<span style="color: #888; font-size: 12px;">🌎</span>
-						<input type="text" id="url-input" value="https://google.com"
-							onkeypress="if(event.key==='Enter') navigateToUrl()">
-					</div>
+        <fos-window name="aboutme" title="About Me">
+            <div class="w95-container">
+                <div style="display: flex; margin-bottom: 10px;">
+                    <div class="w95-avatar-frame">
+                        <img src="img/young-me.jpg" style="width: 100%; height: 100%; object-fit: cover;" />
+                    </div>
 
-					<button class="go-btn" onclick="navigateToUrl()">Go</button>
-				</div>
+                    <fieldset class="w95-fieldset" style="flex-grow: 1; margin: 0;">
+                        <legend class="w95-legend">User Profile</legend>
+                        <div style="display: flex; align-items: center; margin-bottom: 5px;">
+                            <img src="https://win98icons.alexmeub.com/icons/png/user_computer-0.png"
+                                style="width: 32px; margin-right: 10px;">
+                            <h3 style="margin: 0;">Ha Nguyen Tien Dat</h3>
+                        </div>
+                        <hr
+                            style="border: 0; border-bottom: 1px solid #808080; border-top: 1px solid white; margin: 5px 0;">
+                        <ul
+                            style="padding-left: 20px; margin: 5px 0; list-style-image: url('https://win98icons.alexmeub.com/icons/png/check-0.png');">
+                            <li style="margin-bottom: 4px;">FPT University (2025)</li>
+                            <li>Tran Bien High School (2021- 2024)</li>
+                        </ul>
+                    </fieldset>
+                </div>
 
-				<iframe id="browser-frame" frameborder="0" src="app/browser/index.html" allowfullscreen="yes"></iframe>
-			</div>
-		</fos-window>
+                <fieldset class="w95-fieldset">
+                    <legend class="w95-legend">Contact & Social</legend>
 
-		<script>
-			// Function to go back in browser (Arrow function)
-			const goBack = () => {
-				try {
-					const frame = document.getElementById('browser-frame');
-					const frameWindow = frame.contentWindow;
+                    <div class="w95-btn-group">
+                        <a href="https://github.com/DatIT-026" target="_blank" class="w95-button">
+                            <img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs_small-0.png"
+                                alt="icon">
+                            GitHub Repo
+                        </a>
 
-					// Try to go back in iframe history
-					if (frameWindow.history.length > 1) {
-						frameWindow.history.back();
-					} else {
-						// If no history, load home page
-						frame.src = 'app/browser/index.html';
-					}
-				} catch (e) {
-					// If cross-origin error, just reload home
-					document.getElementById('browser-frame').src = 'app/browser/index.html';
-				}
-			};
+                        <a href="https://www.youtube.com/@fadeboymc" target="_blank" class="w95-button">
+                            <img src="https://win98icons.alexmeub.com/icons/png/cd_audio_cd-0.png" alt="icon">
+                            YouTube Channel
+                        </a>
 
-			// Function to reload page (Arrow function) - FIXED
-			const reloadPage = () => {
-				try {
-					const frame = document.getElementById('browser-frame');
-					const currentSrc = frame.src;
+                        <a href="https://www.facebook.com/hanguyentiendat2006" target="_blank" class="w95-button">
+                            <img src="https://win98icons.alexmeub.com/icons/png/msagent-1.png" alt="icon">
+                            Facebook
+                        </a>
 
-					// Force reload by setting src to empty then back to current
-					frame.src = 'about:blank';
-					setTimeout(() => {
-						frame.src = currentSrc;
-					}, 10);
-				} catch (e) {
-					console.error('Reload error:', e);
-					// Fallback: just reload the current src
-					const frame = document.getElementById('browser-frame');
-					frame.src = frame.src;
-				}
-			};
+                        <a href="https://dattos-archive.click/" target="_blank" class="w95-button">
+                            <img src="https://win98icons.alexmeub.com/icons/png/world-0.png" alt="icon">
+                            My Website
+                        </a>
+                    </div>
 
-			const goHome = () => {
-				const frame = document.getElementById('browser-frame');
-				const urlInput = document.getElementById('url-input');
-				frame.src = 'app/browser/index.html';
-			};
+                    <div
+                        style="margin-top: 10px; display: flex; align-items: center; justify-content: center; background: white; border: 2px solid; border-color: #808080 #ffffff #ffffff #808080; padding: 5px;">
+                        <img src="https://win98icons.alexmeub.com/icons/png/envelope_closed-0.png"
+                            style="width: 16px; margin-right: 5px;">
+                        <a href="mailto:tiendatha2006@gmail.com"
+                            style="color: blue; text-decoration: underline; font-size: 12px;">
+                            tiendatha2006@gmail.com
+                        </a>
+                    </div>
+                </fieldset>
+            </div>
+        </fos-window>
+        <fos-window name="games" title="Games" style="width: 370px; height: 280px;">
+            <fos-desktop id="gamesIcons">
+                <fos-icon href="cmiyc" name="CMIYC" fixed="true">
+                    <img src="img/cmiyc.png" alt="cmiyc" title="CMIYC">
+                </fos-icon>
+                <fos-icon href="genius" name="Genius" fixed="true">
+                    <img src="img/genius.png" alt="Genius" title="Genius">
+                </fos-icon>
+                <fos-icon href="invaderz" name="InvaderZ" fixed="true">
+                    <img src="img/invaderz.png" alt="InvaderZ" title="InvaderZ">
+                </fos-icon>
+                <fos-icon href="scramble" name="Scramble" fixed="tru">
+                    <img src="img/scramble.png" alt="Scramble" title="Scramble">
+                </fos-icon>
+            </fos-desktop>
+        </fos-window>
 
-			const navigateToUrl = () => {
-				const urlInput = document.getElementById('url-input');
-				const frame = document.getElementById('browser-frame');
-				let url = urlInput.value.trim();
+        <fos-window name="cmiyc" title="Catch Me If You Can" class="zero">
+            <div class="game-placeholder" data-src="https://itch.io/embed-upload/13834598">
+                <p>Click to load game</p>
+                <button onclick="loadGame(this, 'cmiyc')">Load Game</button>
+            </div>
+        </fos-window>
+        <fos-window name="genius" title="Genius" class="zero">
+            <div class="game-placeholder" data-src="https://itch.io/embed-upload/2136280?color=ffffff">
+                <p>Click to load game</p>
+                <button onclick="loadGame(this, 'genius')">Load Game</button>
+            </div>
+        </fos-window>
+        <fos-window name="invaderz" title="InvaderZ" class="invaderz">
+            <div class="game-placeholder" data-src="https://itch.io/embed-upload/2296430?color=ffffff">
+                <p>Click to load game</p>
+                <button onclick="loadGame(this, 'invaderz')">Load Game</button>
+            </div>
+        </fos-window>
+        <fos-window name="scramble" title="Scramble" class="zero">
+            <div class="game-placeholder" data-src="https://itch.io/embed-upload/2962414?color=ffffff">
+                <p>Click to load game</p>
+                <button onclick="loadGame(this, 'scramble')">Load Game</button>
+            </div>
+        </fos-window>
 
-				if (!url) {
-					alert('Please enter a URL');
-					return;
-				}
+        <script>
+            // Game Loader Logic
+            function loadGame(button, gameName) {
+                const placeholder = button.parentElement;
+                const src = placeholder.getAttribute('data-src');
+                const iframe = document.createElement('iframe');
+                iframe.frameBorder = '0';
+                iframe.src = src;
+                iframe.allowFullscreen = true;
+                iframe.width = '99%';
+                iframe.height = '99%';
+                placeholder.parentElement.replaceChild(iframe, placeholder);
+            }
 
-				// add https:// if no protocol specified
-				if (!url.startsWith('http://') && !url.startsWith('https://') && !url.startsWith('app/')) {
-					if (url.startsWith('//')) {
-						frame.src = 'https:' + url;
-					} else {
-						frame.src = 'https://' + url;
-					}
-					return;
-				}
+            document.addEventListener('DOMContentLoaded', function () {
+                const gameWindows = ['cmiyc', 'genius', 'invaderz', 'scramble'];
+                gameWindows.forEach(gameName => {
+                    const gameWindow = document.querySelector(`fos-window[name="${gameName}"]`);
+                    if (gameWindow) {
+                        const originalClose = gameWindow.close;
+                        gameWindow.close = function () {
+                            const iframe = this.querySelector('iframe');
+                            if (iframe) {
+                                const placeholder = document.createElement('div');
+                                placeholder.className = 'game-placeholder';
+                                placeholder.setAttribute('data-src', iframe.src);
+                                placeholder.innerHTML = `<p>Click to load game</p><button onclick="loadGame(this, '${gameName}')">Load Game</button>`;
+                                iframe.parentElement.replaceChild(placeholder, iframe);
+                            }
+                            originalClose.call(this);
+                        };
+                    }
+                });
+            });
+        </script>
 
-				// Try to load the URL
-				frame.src = url;
-			};
+        <fos-window name="radio" title="Radio" class="zero">
+            <iframe frameborder="0" src="app/radio/index.html" allowfullscreen="yes" width="100%"
+                height="100%"></iframe>
+        </fos-window>
 
-			// Update URL input when navigating
-			document.addEventListener('DOMContentLoaded', () => {
-				const frame = document.getElementById('browser-frame');
-				const urlInput = document.getElementById('url-input');
+        <fos-window name="art3d" title="My Album" style="width: 550px; height: 450px;">
+            <div class="folder-menubar">
+                <span><u>F</u>ile</span>
+                <span><u>E</u>dit</span>
+                <span><u>V</u>iew</span>
+                <span><u>H</u>elp</span>
+            </div>
+            <fos-desktop id="art3dicons" style="background-color: white; border-top: 2px solid #808080;">
+            </fos-desktop>
+            <div class="folder-statusbar">Loading...</div>
+        </fos-window>
 
-				if (frame && urlInput) {
-					urlInput.value = 'http://www.google.com/';
-
-					// Listen for Enter key in URL input
-					urlInput.addEventListener('keypress', (e) => {
-						if (e.key === 'Enter') {
-							navigateToUrl();
-						}
-					});
-				}
-			});
-		</script>
-
-		<fos-window name="aboutme" title="About Me">
-			<style>
-				.w95-container {
-					padding: 10px;
-					background-color: #c0c0c0;
-					font-family: 'MS Sans Serif', Arial, sans-serif;
-					font-size: 13px;
-					height: 100%;
-					box-sizing: border-box;
-					display: flex;
-					flex-direction: column;
-				}
-
-				.w95-fieldset {
-					border: 1px solid #c0c0c0;
-					border-top-color: #ffffff;
-					border-left-color: #ffffff;
-					border-right-color: #808080;
-					border-bottom-color: #808080;
-					padding: 8px;
-					margin-bottom: 10px;
-				}
-
-				.w95-legend {
-					margin-left: 5px;
-					padding: 0 4px;
-					color: #000;
-				}
-
-				.w95-btn-group {
-					display: grid;
-					grid-template-columns: 1fr 1fr;
-					gap: 8px;
-				}
-
-				.w95-button {
-					display: flex;
-					align-items: center;
-					justify-content: flex-start;
-					text-decoration: none;
-					color: black;
-					background: #c0c0c0;
-					border-top: 2px solid #ffffff;
-					border-left: 2px solid #ffffff;
-					border-right: 2px solid #000000;
-					border-bottom: 2px solid #000000;
-					padding: 4px 8px;
-					cursor: pointer;
-					font-size: 12px;
-				}
-
-				.w95-button:active {
-					border-top: 2px solid #000000;
-					border-left: 2px solid #000000;
-					border-right: 2px solid #ffffff;
-					border-bottom: 2px solid #ffffff;
-					transform: translate(1px, 1px);
-				}
-
-				.w95-button img {
-					margin-right: 8px;
-					width: 16px;
-					height: 16px;
-				}
-
-				.w95-avatar-frame {
-					border: 2px solid;
-					border-color: #808080 #ffffff #ffffff #808080;
-					background: white;
-					width: 120px;
-					height: 160px;
-					margin-right: 15px;
-					flex-shrink: 0;
-				}
-			</style>
-
-			<div class="w95-container">
-
-				<div style="display: flex; margin-bottom: 10px;">
-					<div class="w95-avatar-frame">
-						<img src="img/young-me.jpg" style="width: 100%; height: 100%; object-fit: cover;" />
-					</div>
-
-					<fieldset class="w95-fieldset" style="flex-grow: 1; margin: 0;">
-						<legend class="w95-legend">User Profile</legend>
-						<div style="display: flex; align-items: center; margin-bottom: 5px;">
-							<img src="https://win98icons.alexmeub.com/icons/png/user_computer-0.png"
-								style="width: 32px; margin-right: 10px;">
-							<h3 style="margin: 0;">Ha Nguyen Tien Dat</h3>
-						</div>
-						<hr
-							style="border: 0; border-bottom: 1px solid #808080; border-top: 1px solid white; margin: 5px 0;">
-						<ul
-							style="padding-left: 20px; margin: 5px 0; list-style-image: url('https://win98icons.alexmeub.com/icons/png/check-0.png');">
-							<li style="margin-bottom: 4px;">FPT University (2025)</li>
-							<li>Tran Bien High School (2021- 2024)</li>
-						</ul>
-					</fieldset>
-				</div>
-
-				<fieldset class="w95-fieldset">
-					<legend class="w95-legend">Contact & Social</legend>
-
-					<div class="w95-btn-group">
-						<a href="https://github.com/DatIT-026" target="_blank" class="w95-button">
-							<img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs_small-0.png"
-								alt="icon">
-							GitHub Repo
-						</a>
-
-						<a href="https://www.youtube.com/@fadeboymc" target="_blank" class="w95-button">
-							<img src="https://win98icons.alexmeub.com/icons/png/cd_audio_cd-0.png" alt="icon">
-							YouTube Channel
-						</a>
-
-						<a href="https://www.facebook.com/hanguyentiendat2006" target="_blank" class="w95-button">
-							<img src="https://win98icons.alexmeub.com/icons/png/msagent-1.png" alt="icon">
-							Facebook
-						</a>
-
-						<a href="https://dattos-archive.click/" target="_blank" class="w95-button">
-							<img src="https://win98icons.alexmeub.com/icons/png/world-0.png" alt="icon">
-							My Website
-						</a>
-					</div>
-
-					<div
-						style="margin-top: 10px; display: flex; align-items: center; justify-content: center; background: white; border: 2px solid; border-color: #808080 #ffffff #ffffff #808080; padding: 5px;">
-						<img src="https://win98icons.alexmeub.com/icons/png/envelope_closed-0.png"
-							style="width: 16px; margin-right: 5px;">
-						<a href="mailto:tiendatha2006@gmail.com"
-							style="color: blue; text-decoration: underline; font-size: 12px;">
-							tiendatha2006@gmail.com
-						</a>
-					</div>
-				</fieldset>
-			</div>
-		</fos-window>
-		<fos-window name="games" title="Games" style="width: 370px; height: 280px;">
-			<fos-desktop id="gamesIcons">
-				<fos-icon href="cmiyc" name="CMIYC" fixed="true">
-					<img src="img/cmiyc.png" alt="cmiyc" title="CMIYC">
-				</fos-icon>
-				<fos-icon href="genius" name="Genius" fixed="true">
-					<img src="img/genius.png" alt="Genius" title="Genius">
-				</fos-icon>
-				<fos-icon href="invaderz" name="InvaderZ" fixed="true">
-					<img src="img/invaderz.png" alt="InvaderZ" title="InvaderZ">
-				</fos-icon>
-				<fos-icon href="scramble" name="Scramble" fixed="tru">
-					<img src="img/scramble.png" alt="Scramble" title="Scramble">
-				</fos-icon>
-			</fos-desktop>
-		</fos-window>
-
-		<fos-window name="cmiyc" title="Catch Me If You Can" class="zero">
-			<div class="game-placeholder" data-src="https://itch.io/embed-upload/13834598">
-				<p>Click to load game</p>
-				<button onclick="loadGame(this, 'cmiyc')">Load Game</button>
-			</div>
-		</fos-window>
-		<fos-window name="genius" title="Genius" class="zero">
-			<div class="game-placeholder" data-src="https://itch.io/embed-upload/2136280?color=ffffff">
-				<p>Click to load game</p>
-				<button onclick="loadGame(this, 'genius')">Load Game</button>
-			</div>
-		</fos-window>
-		<fos-window name="invaderz" title="InvaderZ" class="invaderz">
-			<div class="game-placeholder" data-src="https://itch.io/embed-upload/2296430?color=ffffff">
-				<p>Click to load game</p>
-				<button onclick="loadGame(this, 'invaderz')">Load Game</button>
-			</div>
-		</fos-window>
-		<fos-window name="scramble" title="Scramble" class="zero">
-			<div class="game-placeholder" data-src="https://itch.io/embed-upload/2962414?color=ffffff">
-				<p>Click to load game</p>
-				<button onclick="loadGame(this, 'scramble')">Load Game</button>
-			</div>
-		</fos-window>
-
-		<script>
-			// Function to load games on demand
-			function loadGame(button, gameName) {
-				const placeholder = button.parentElement;
-				const src = placeholder.getAttribute('data-src');
-
-				// Create iframe
-				const iframe = document.createElement('iframe');
-				iframe.frameBorder = '0';
-				iframe.src = src;
-				iframe.allowFullscreen = true;
-				iframe.width = '99%';
-				iframe.height = '99%';
-
-				// Replace placeholder with iframe
-				placeholder.parentElement.replaceChild(iframe, placeholder);
-			}
-
-			// Enhanced window close functionality
-			document.addEventListener('DOMContentLoaded', function () {
-				// Override the close method for game windows
-				const gameWindows = ['cmiyc', 'genius', 'invaderz', 'scramble'];
-
-				gameWindows.forEach(gameName => {
-					const gameWindow = document.querySelector(`fos-window[name="${gameName}"]`);
-					if (gameWindow) {
-						// Store original close method
-						const originalClose = gameWindow.close;
-
-						// Override close method
-						gameWindow.close = function () {
-							// Stop audio by replacing iframe with placeholder
-							const iframe = this.querySelector('iframe');
-							if (iframe) {
-								const placeholder = document.createElement('div');
-								placeholder.className = 'game-placeholder';
-								placeholder.setAttribute('data-src', iframe.src);
-								placeholder.innerHTML = `
-								<p>Click to load game</p>
-								<button onclick="loadGame(this, '${gameName}')">Load Game</button>
-							`;
-								placeholder.style.cssText = `
-								display: flex;
-								flex-direction: column;
-								align-items: center;
-								justify-content: center;
-								width: 100%;
-								height: 100%;
-								min-height: 300px;
-								background-color: #c0c0c0;
-								border: 2px inset #c0c0c0;
-								text-align: center;
-								font-family: 'MS Sans Serif', sans-serif;
-								font-size: 11px;
-								position: absolute;
-								top: 0;
-								left: 0;
-								box-sizing: border-box;
-							`;
-								iframe.parentElement.replaceChild(placeholder, iframe);
-							}
-
-							// Call original close method
-							originalClose.call(this);
-						};
-					}
-				});
-			});
-		</script>
-
-		<style>
-			.game-placeholder {
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				justify-content: center;
-				width: 100%;
-				height: 100%;
-				min-height: 300px;
-				background-color: #c0c0c0;
-				border: 2px inset #c0c0c0;
-				text-align: center;
-				font-family: 'MS Sans Serif', sans-serif;
-				font-size: 13px;
-				position: absolute;
-				top: 0;
-				left: 0;
-				box-sizing: border-box;
-			}
-
-			.game-placeholder p {
-				margin: 0 0 15px 0;
-				color: #000;
-				font-weight: normal;
-			}
-
-			.game-placeholder button {
-				padding: 8px 16px;
-				background-color: #c0c0c0;
-				color: #000;
-				border: 2px outset #c0c0c0;
-				font-family: 'MS Sans Serif', sans-serif;
-				font-size: 13px;
-				cursor: pointer;
-				min-width: 75px;
-			}
-
-			.game-placeholder button:hover {
-				background-color: #d0d0d0;
-			}
-
-			.game-placeholder button:active {
-				border: 2px inset #c0c0c0;
-				background-color: #a0a0a0;
-			}
-
-			fos-window[name="cmiyc"] #content,
-			fos-window[name="genius"] #content,
-			fos-window[name="invaderz"] #content,
-			fos-window[name="scramble"] #content {
-				position: relative;
-				width: 100%;
-				height: 100%;
-			}
-		</style>
-
-
-		<fos-window name="radio" title="Radio" class="zero">
-			<iframe frameborder="0" src="app/radio/index.html" allowfullscreen="yes" width="100%"
-				height="100%"></iframe>
-		</fos-window>
-
-		<fos-window name="art3d" title="My Album" style="width: 550px; height: 450px;">
-			<div class="folder-menubar">
-				<span><u>F</u>ile</span>
-				<span><u>E</u>dit</span>
-				<span><u>V</u>iew</span>
-				<span><u>H</u>elp</span>
-			</div>
-			<fos-desktop id="art3dicons" style="background-color: white; border-top: 2px solid #808080;">
-			</fos-desktop>
-			<div class="folder-statusbar">Loading...</div>
-		</fos-window>
-
-		<fos-window name="imgviewer" title="Image Viewer" style="width: 650px; height: 550px;">
-			<div class="viewer-container">
-				<div class="viewer-toolbar">
-					<button onclick="changeImage(-1)" title="Previous Image (Left Arrow)" accesskey="p">
-						<b>&lt; Prev</b>
-					</button>
-					<span id="img-counter">0/0</span>
-					<button onclick="changeImage(1)" title="Next Image (Right Arrow)" accesskey="n">
-						<b>Next &gt;</b>
-					</button>
-				</div>
-				<div class="viewer-content">
-					<img id="main-display-img" src="" alt="Image Viewer">
-				</div>
-				<div class="viewer-statusbar">
-					<span>Press ← → to navigate | ESC to close</span>
-				</div>
-			</div>
-		</fos-window>
-	</fos-desktop>
-	<script src="js/main.js"></script>
-	<div id="fgbg"></div>
+        <fos-window name="imgviewer" title="Image Viewer" style="width: 650px; height: 550px;">
+            <div class="viewer-container">
+                <div class="viewer-toolbar">
+                    <button onclick="changeImage(-1)" title="Previous Image (Left Arrow)" accesskey="p">
+                        <b>&lt; Prev</b>
+                    </button>
+                    <span id="img-counter">0/0</span>
+                    <button onclick="changeImage(1)" title="Next Image (Right Arrow)" accesskey="n">
+                        <b>Next &gt;</b>
+                    </button>
+                </div>
+                <div class="viewer-content">
+                    <img id="main-display-img" src="" alt="Image Viewer">
+                </div>
+                <div class="viewer-statusbar">
+                    <span>Press ← → to navigate | ESC to close</span>
+                </div>
+            </div>
+        </fos-window>
+    </fos-desktop>
+    <script src="js/main.js"></script>
+    <div id="fgbg"></div>
 </body>
 
 </html>

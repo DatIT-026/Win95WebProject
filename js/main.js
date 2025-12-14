@@ -67,7 +67,7 @@ const openViewer = idx => {
     const win = $('fos-window[name="imgviewer"]');
     if (win) {
         win.style.display = 'block';
-        win.bringFront(); // Fix: Use system method, removed hardcoded z-index 1000
+        win.bringFront();
     }
 };
 
@@ -97,7 +97,7 @@ window.changeImage = d => {
     currIdx += d;
     updateViewer();
     const win = $('fos-window[name="imgviewer"]');
-    if (win) win.bringFront(); // Fix: Removed hardcoded z-index
+    if (win) win.bringFront();
 };
 
 document.addEventListener('keydown', e => {
@@ -117,7 +117,6 @@ const clock = () => {
 const manageAudio = () => {
     const games = ['cmiyc', 'genius', 'invaderz', 'scramble', 'radio'];
     
-    // Fix: Unified logic. Observer now handles BOTH hide (mute) and show (play)
     new MutationObserver(muts => muts.forEach(m => {
         if (m.type === 'attributes' && m.attributeName === 'style') {
             const t = m.target;

@@ -17,6 +17,7 @@ icon {
     font-family: Helvetica, Arial, Sans-Serif
 }
 
+/* Scrollbar styling */
 body ::-webkit-scrollbar {
     width: 16px;
     height: 16px;
@@ -68,6 +69,7 @@ body ::-webkit-scrollbar-corner {
     background: silver
 }
 
+/* FOS Component Overrides */
 fos-desktop {
     background-color: transparent
 }
@@ -193,6 +195,7 @@ fos-menu::part(window) {
     background-color: silver
 }
 
+/* Global Classes */
 .zero {
     left: 0;
     top: 0;
@@ -211,10 +214,6 @@ fos-menu::part(window) {
     max-height: 100%
 }
 
-#gamesIcons>fos-icon>img {
-    width: 80%
-}
-
 #clock {
     position: absolute;
     right: 10px;
@@ -223,13 +222,6 @@ fos-menu::part(window) {
     width: 60px;
     text-align: center;
     box-shadow: inset -1px -1px #fff, inset 1px 1px #0a0a0a, inset -2px -2px #dfdfdf, inset 2px 2px grey
-}
-
-#helper {
-    position: fixed;
-    right: 15px;
-    bottom: 50px;
-    z-index: 1000
 }
 
 #fgbg {
@@ -257,6 +249,223 @@ fos-menu::part(window) {
 
 .viewer {
     height: auto !important;
+}
+
+/* --- App Specific: Browser Window --- */
+fos-window[name="browser"] {
+    width: 750px;
+    height: 550px;
+    min-width: 320px;
+    min-height: 400px;
+}
+
+.browser-layout {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: #fff;
+}
+
+#browser-toolbar {
+    flex: 0 0 auto;
+    background: linear-gradient(to bottom, #dae4f5 0%, #bed0ea 100%);
+    padding: 6px 8px;
+    border-bottom: 1px solid #999;
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    flex-wrap: wrap;
+}
+
+#browser-frame {
+    flex: 1 1 auto;
+    width: 100%;
+    border: none;
+    display: block;
+    background: white;
+}
+
+.nav-btn {
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-btn:hover {
+    background: linear-gradient(to bottom, #fff, #e6e6e6);
+    border: 1px solid #999;
+}
+
+#url-wrapper {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border: 1px solid #7e9bbd;
+    border-radius: 3px;
+    padding: 2px 4px;
+    height: 24px;
+    min-width: 150px;
+}
+
+#url-input {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    font-size: 13px;
+    margin-left: 4px;
+}
+
+.go-btn {
+    margin-left: 4px;
+    background: linear-gradient(to bottom, #f5fcf0, #dcebc9);
+    border: 1px solid #94b168;
+    border-radius: 2px;
+    color: #4e7518;
+    font-weight: bold;
+    font-size: 11px;
+    padding: 0 8px;
+    height: 26px;
+    cursor: pointer;
+}
+
+/* --- App Specific: About Me Window --- */
+.w95-container {
+    padding: 10px;
+    background-color: #c0c0c0;
+    font-family: 'MS Sans Serif', Arial, sans-serif;
+    font-size: 13px;
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.w95-fieldset {
+    border: 1px solid #c0c0c0;
+    border-top-color: #ffffff;
+    border-left-color: #ffffff;
+    border-right-color: #808080;
+    border-bottom-color: #808080;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+.w95-legend {
+    margin-left: 5px;
+    padding: 0 4px;
+    color: #000;
+}
+
+.w95-btn-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+
+.w95-button {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-decoration: none;
+    color: black;
+    background: #c0c0c0;
+    border-top: 2px solid #ffffff;
+    border-left: 2px solid #ffffff;
+    border-right: 2px solid #000000;
+    border-bottom: 2px solid #000000;
+    padding: 4px 8px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.w95-button:active {
+    border-top: 2px solid #000000;
+    border-left: 2px solid #000000;
+    border-right: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+    transform: translate(1px, 1px);
+}
+
+.w95-button img {
+    margin-right: 8px;
+    width: 16px;
+    height: 16px;
+}
+
+.w95-avatar-frame {
+    border: 2px solid;
+    border-color: #808080 #ffffff #ffffff #808080;
+    background: white;
+    width: 120px;
+    height: 160px;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+/* --- App Specific: Game Placeholder --- */
+.game-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    min-height: 300px;
+    background-color: #c0c0c0;
+    border: 2px inset #c0c0c0;
+    text-align: center;
+    font-family: 'MS Sans Serif', sans-serif;
+    font-size: 13px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+}
+
+.game-placeholder p {
+    margin: 0 0 15px 0;
+    color: #000;
+    font-weight: normal;
+}
+
+.game-placeholder button {
+    padding: 8px 16px;
+    background-color: #c0c0c0;
+    color: #000;
+    border: 2px outset #c0c0c0;
+    font-family: 'MS Sans Serif', sans-serif;
+    font-size: 13px;
+    cursor: pointer;
+    min-width: 75px;
+}
+
+.game-placeholder button:hover {
+    background-color: #d0d0d0;
+}
+
+.game-placeholder button:active {
+    border: 2px inset #c0c0c0;
+    background-color: #a0a0a0;
+}
+
+fos-window[name="cmiyc"] #content,
+fos-window[name="genius"] #content,
+fos-window[name="invaderz"] #content,
+fos-window[name="scramble"] #content {
+    position: relative;
+    width: 100%;
+    height: 100%;
 }
 
 /* --- Style for ALBUM & VIEWER --- */
@@ -294,9 +503,7 @@ fos-menu::part(window) {
     font-size: 11px;
     color: #000;
     box-shadow: inset -1px -1px 0 #dfdfdf;
-
     display: none !important;
-    /* chua can dung nen an */
 }
 
 /* Style for window Album */
@@ -365,7 +572,6 @@ fos-window[name="art3d"] #content {
     filter: none !important;
     pointer-events: none;
     -webkit-user-drag: none;
-    user-drag: none;
     transform: rotate(-2deg);
     transition: all 0.2s ease;
 }
@@ -411,6 +617,10 @@ fos-window[name="imgviewer"] {
     height: 550px;
     min-width: 400px;
     min-height: 350px;
+}
+
+fos-window[name="imgviewer"][style*="display: block"] {
+    z-index: 1000 !important;
 }
 
 fos-window[name="imgviewer"] #content {
@@ -510,7 +720,6 @@ fos-window[name="imgviewer"] #content {
     display: block;
     pointer-events: none;
     -webkit-user-drag: none;
-    user-drag: none;
 }
 
 /* Statusbar */
@@ -674,9 +883,5 @@ fos-window[name="imgviewer"] #content {
 
     fos-menu {
         bottom: 42px !important;
-    }
-
-    #helper {
-        display: none !important;
     }
 }
