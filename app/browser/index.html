@@ -25,16 +25,16 @@
       <div class="box">
         <p>Special Searches:</p>
         <ul>
-          <li><a href="https://datit-026.github.io/fumo/" onclick="showNotification();">The Fumos</a></li>
-          <li><a href="https://oldlinux.org/" onclick="showNotification();">Linux</a></li>
+          <li><a href="https://datit-026.github.io/fumo/">The Fumos</a></li>
+          <li><a href="https://oldlinux.org/">Linux</a></li>
         </ul>
       </div>
       <div class="box">
         <ul>
-          <li><a href="https://datit-026.github.io/Win95WebProject/README.md" onclick="showNotification();">Help</a></li>
-          <li><a href="https://datit-026.github.io/dattos-archive/about/" onclick="showNotification();">About</a></li>
+          <li><a href="https://datit-026.github.io/Win95WebProject/README.md">Help</a></li>
+          <li><a href="https://dattos-archive.click/about/">About</a></li>
           <li><a href="#" onclick="showNotification();">Company</a></li>
-          <li><a href="https://datit-026.github.io/Win95WebProject/app/browser/img/google-logo.jpg" onclick="showNotification();">Logos</a></li>
+          <li><a href="https://datit-026.github.io/Win95WebProject/app/browser/img/google-logo.jpg">Logos</a></li>
         </ul>
       </div>
       <div class="box">
@@ -57,13 +57,40 @@
       notification.style.display = 'block';
       setTimeout(function() {
         notification.style.display = 'none';
-      }, 2000); // Hide notification after 2 seconds
+      }, 2000); // hide notification after 2 seconds
     }
 
     window.onload = function() {
       var notification = document.getElementById('notification');
       notification.style.display = 'none';
     };
+
+    try {
+        if (window.parent && window.parent.document) {
+            var parentInput = window.parent.document.getElementById('url-input');
+            if (parentInput) {
+                parentInput.value = "http://www.google.com/";
+            }
+        }
+
+        var links = document.querySelectorAll('a');
+        links.forEach(function(link) {
+            link.addEventListener('click', function() {
+                var targetUrl = this.href;
+                
+                if (targetUrl && targetUrl !== "#" && !targetUrl.startsWith("javascript")) {
+                    if (window.parent && window.parent.document) {
+                        var parentInput = window.parent.document.getElementById('url-input');
+                        if (parentInput) {
+                            parentInput.value = targetUrl;
+                        }
+                    }
+                }
+            });
+        });
+      } catch (e) {
+        console.log("Cannot update parent URL");
+      }
   </script>
 </body>
 </html>

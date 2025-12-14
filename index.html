@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-	<title> Windows 95 - Version 1.6.4.9 </title>
+	<title> Windows 95 - Version 1.6.5.0 </title>
 	<meta charset="utf-8">
 	<!--<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">-->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -25,7 +25,7 @@
 	<fos-desktop id="mainDesktop">
 		<fos-bar>
 			<fos-menu name="Start">
-				<div style="min-width: 150px">Menu (1.6.4.9)</div>
+				<div style="min-width: 150px">Menu (1.6.5.0)</div>
 				<hr>
 				<fos-menu-item href="thispc"><img src="img/thispc.png">PC Care</fos-menu-item>
 				<fos-menu-item href="aboutme"><img src="img/artage-io-48161_1588129131.png">About</fos-menu-item>
@@ -62,16 +62,22 @@
 		<fos-window name="browser" title="Browser">
 			<style>
 				fos-window[name="browser"] {
-					min-width: 600px;
-					min-height: 500px;
+					width: 750px;
+					height: 550px;
+
+					min-width: 320px;
+					min-height: 400px;
 				}
 
-				fos-window[name="browser"] #browser-frame {
-					min-width: 580px;
-					min-height: 440px;
+				.browser-layout {
+					display: flex;
+					flex-direction: column;
+					height: 100%;
+					background-color: #fff;
 				}
 
 				#browser-toolbar {
+					flex: 0 0 auto;
 					background: linear-gradient(to bottom, #dae4f5 0%, #bed0ea 100%);
 					padding: 6px 8px;
 					border-bottom: 1px solid #999;
@@ -79,6 +85,15 @@
 					gap: 6px;
 					align-items: center;
 					font-family: 'Segoe UI', Tahoma, sans-serif;
+					flex-wrap: wrap;
+				}
+
+				#browser-frame {
+					flex: 1 1 auto;
+					width: 100%;
+					border: none;
+					display: block;
+					background: white;
 				}
 
 				.nav-btn {
@@ -93,18 +108,11 @@
 					display: flex;
 					align-items: center;
 					justify-content: center;
-					transition: all 0.1s;
 				}
 
 				.nav-btn:hover {
 					background: linear-gradient(to bottom, #fff, #e6e6e6);
 					border: 1px solid #999;
-					box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-				}
-
-				.nav-btn:active {
-					background: #ccc;
-					box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
 				}
 
 				#url-wrapper {
@@ -115,8 +123,8 @@
 					border: 1px solid #7e9bbd;
 					border-radius: 3px;
 					padding: 2px 4px;
-					box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
 					height: 24px;
+					min-width: 150px;
 				}
 
 				#url-input {
@@ -125,7 +133,6 @@
 					width: 100%;
 					font-family: 'Segoe UI', Tahoma, sans-serif;
 					font-size: 13px;
-					color: #333;
 					margin-left: 4px;
 				}
 
@@ -141,35 +148,25 @@
 					height: 26px;
 					cursor: pointer;
 				}
-
-				.go-btn:hover {
-					background: linear-gradient(to bottom, #eafde6, #c5e3a8);
-				}
-
-				#browser-frame {
-					width: 100%;
-					height: calc(100% - 45px);
-					border: none;
-					border-top: 1px solid #a0a0a0;
-					display: block;
-					background: white;
-				}
 			</style>
-			<div id="browser-toolbar">
-				<button class="nav-btn" onclick="goBack()" title="Back">◄</button>
-				<button class="nav-btn" onclick="reloadPage()" title="Reload">↻</button>
-				<button class="nav-btn" onclick="goHome()" title="Home">🏠</button>
 
-				<div id="url-wrapper">
-					<span style="color: #888; font-size: 12px;">🌎</span>
-					<input type="text" id="url-input" value="https://google.com"
-						onkeypress="if(event.key==='Enter') navigateToUrl()">
+			<div class="browser-layout">
+				<div id="browser-toolbar">
+					<button class="nav-btn" onclick="goBack()" title="Back">◄</button>
+					<button class="nav-btn" onclick="reloadPage()" title="Reload">↻</button>
+					<button class="nav-btn" onclick="goHome()" title="Home">🏠</button>
+
+					<div id="url-wrapper">
+						<span style="color: #888; font-size: 12px;">🌎</span>
+						<input type="text" id="url-input" value="https://google.com"
+							onkeypress="if(event.key==='Enter') navigateToUrl()">
+					</div>
+
+					<button class="go-btn" onclick="navigateToUrl()">Go</button>
 				</div>
 
-				<button class="go-btn" onclick="navigateToUrl()">Go</button>
+				<iframe id="browser-frame" frameborder="0" src="app/browser/index.html" allowfullscreen="yes"></iframe>
 			</div>
-			<iframe id="browser-frame" frameborder="0" src="app/browser/index.html" allowfullscreen="yes"
-				style="width: 100%; height: calc(100% - 40px); display: block;"></iframe>
 		</fos-window>
 
 		<script>
