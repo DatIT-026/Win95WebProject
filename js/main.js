@@ -67,10 +67,7 @@ const openViewer = idx => {
     const win = $('fos-window[name="imgviewer"]');
     if (win) {
         win.style.display = 'block';
-        win.bringFront();
-        win.style.zIndex = '1000';
-        const alb = $('fos-window[name="art3d"]');
-        if (alb) alb.style.zIndex = '950';
+        win.bringFront(); // Fix: Use system method, removed hardcoded z-index 1000
     }
 };
 
@@ -100,7 +97,7 @@ window.changeImage = d => {
     currIdx += d;
     updateViewer();
     const win = $('fos-window[name="imgviewer"]');
-    if (win) { win.bringFront(); win.style.zIndex = '1000'; }
+    if (win) win.bringFront(); // Fix: Removed hardcoded z-index
 };
 
 document.addEventListener('keydown', e => {
@@ -120,22 +117,24 @@ const clock = () => {
 const manageAudio = () => {
     const games = ['cmiyc', 'genius', 'invaderz', 'scramble', 'radio'];
     
-    games.forEach(n => {
-        const ic = $(`fos-icon[href="${n}"]`);
-        if (ic) ic.addEventListener('dblclick', () => setTimeout(() => {
-            const w = $(`fos-window[name="${n}"]`), f = w?.querySelector('iframe');
-            if (f?.dataset.src) f.src = f.dataset.src;
-        }, 100));
-    });
-
+    // Fix: Unified logic. Observer now handles BOTH hide (mute) and show (play)
     new MutationObserver(muts => muts.forEach(m => {
         if (m.type === 'attributes' && m.attributeName === 'style') {
             const t = m.target;
-            if (t.tagName === 'FOS-WINDOW' && t.style.display === 'none' && games.includes(t.getAttribute('name'))) {
+            if (t.tagName === 'FOS-WINDOW' && games.includes(t.getAttribute('name'))) {
                 const f = t.querySelector('iframe');
-                if (f) {
+                if (!f) return;
+
+                if (t.style.display === 'none') {
+                    // Window Hidden: Save src and blank it to stop audio
                     if (!f.dataset.src) f.dataset.src = f.src;
-                    f.src = 'about:blank';
+                    if (f.src !== 'about:blank') f.src = 'about:blank';
+                } else {
+                    // Window Shown: Restore src if it was blanked
+                    // Works for Start Menu, Icons, and Task switching
+                    if (f.dataset.src && f.src === 'about:blank') {
+                        f.src = f.dataset.src;
+                    }
                 }
             }
         }

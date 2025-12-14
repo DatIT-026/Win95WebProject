@@ -413,10 +413,6 @@ fos-window[name="imgviewer"] {
     min-height: 350px;
 }
 
-fos-window[name="imgviewer"][style*="display: block"] {
-    z-index: 1000 !important;
-}
-
 fos-window[name="imgviewer"] #content {
     padding: 0 !important;
     background-color: #c0c0c0;
@@ -612,7 +608,6 @@ fos-window[name="imgviewer"] #content {
         transform: none !important;
         box-sizing: border-box !important;
         border: 2px outset #fff !important;
-        z-index: 1000 !important;
         border-radius: 0 !important;
     }
 
