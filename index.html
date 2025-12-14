@@ -2,8 +2,8 @@
 <html lang="en">
 
 <head>
-    <title> Windows 95 - Version 1.6.5.0 </title>
-    <meta charset="utf-8">
+    <title> Windows 95 - Version 1.7.0.0 </title>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="mobile-web-app-capable" content="yes">
     <meta property="og:url" content="https://datit-026.github.io/DatIT/" />
@@ -23,7 +23,7 @@
     <fos-desktop id="mainDesktop">
         <fos-bar>
             <fos-menu name="Start">
-                <div style="min-width: 150px">Menu (1.6.5.0)</div>
+                <div style="min-width: 150px">Menu (1.7.0.0)</div>
                 <hr>
                 <fos-menu-item href="thispc"><img src="img/thispc.png">PC Care</fos-menu-item>
                 <fos-menu-item href="aboutme"><img src="img/artage-io-48161_1588129131.png">About</fos-menu-item>
@@ -77,7 +77,6 @@
         </fos-window>
 
         <script>
-            // Browser Logic
             const goBack = () => {
                 try {
                     const frame = document.getElementById('browser-frame');
@@ -237,7 +236,6 @@
         </fos-window>
 
         <script>
-            // Game Loader Logic
             function loadGame(button, gameName) {
                 const placeholder = button.parentElement;
                 const src = placeholder.getAttribute('data-src');

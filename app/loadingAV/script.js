@@ -1,31 +1,29 @@
-let scanInProgress = false; // Flag variable to track if scan process is in progress
+let scanInProgress = false;
 
 function scan() {
   const progressBar = document.getElementById("progress-bar");
 
   if (scanInProgress) {
-    return; // If scan is already in progress, do nothing
+    return;
   }
 
-  // Ensure progress bar is reset before starting
   progressBar.style.width = "0%";
-  progressBar.style.backgroundColor = "#00007b"; // Set initial color
-  scanInProgress = true; // Set flag to indicate scan is in progress
+  progressBar.style.backgroundColor = "#00007b";
+  scanInProgress = true;
 
-  // Simulate scanning process
   let progress = 0;
   const interval = setInterval(() => {
-    progress += Math.random() * 5; // Simulating slower progress for scanning
+    progress += Math.random() * 5;
     progressBar.style.width = `${Math.min(progress, 100)}%`;
 
     if (progress >= 100) {
-      clearInterval(interval); // Stop the interval when scanning is complete
-      progressBar.style.backgroundColor = "transparent"; // Remove color after scan
+      clearInterval(interval);
+      progressBar.style.backgroundColor = "transparent";
       showFakeAlert("0 viruses found");
-      scanInProgress = false; // Reset flag after scan is complete
-      progressBar.style.width = "0%"; // Reset progress bar width
+      scanInProgress = false;
+      progressBar.style.width = "0%"; // reset progress bar width
     }
-  }, 200); // Adjust the interval duration for slower progress
+  }, 200); // adjust the interval duration for slower progress
 }
 
 function showFakeAlert(message) {
@@ -33,8 +31,8 @@ function showFakeAlert(message) {
   alertBox.textContent = message;
   alertBox.style.display = "block";
 
-  // Hide the alert after 15 seconds
+  // Hide the alert after 10 seconds
   setTimeout(() => {
     alertBox.style.display = "none";
-  }, 15000);
+  }, 10000);
 }

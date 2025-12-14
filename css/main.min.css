@@ -17,7 +17,7 @@ icon {
     font-family: Helvetica, Arial, Sans-Serif
 }
 
-/* Scrollbar styling */
+/* scrollbar styling */
 body ::-webkit-scrollbar {
     width: 16px;
     height: 16px;
@@ -195,7 +195,7 @@ fos-menu::part(window) {
     background-color: silver
 }
 
-/* Global Classes */
+/* global Classes */
 .zero {
     left: 0;
     top: 0;
@@ -251,7 +251,7 @@ fos-menu::part(window) {
     height: auto !important;
 }
 
-/* --- App Specific: Browser Window --- */
+/* browser window */
 fos-window[name="browser"] {
     width: 750px;
     height: 550px;
@@ -339,7 +339,7 @@ fos-window[name="browser"] {
     cursor: pointer;
 }
 
-/* --- App Specific: About Me Window --- */
+/* about me window */
 .w95-container {
     padding: 10px;
     background-color: #c0c0c0;
@@ -413,7 +413,7 @@ fos-window[name="browser"] {
     flex-shrink: 0;
 }
 
-/* --- App Specific: Game Placeholder --- */
+/* game */
 .game-placeholder {
     display: flex;
     flex-direction: column;
@@ -468,7 +468,7 @@ fos-window[name="scramble"] #content {
     height: 100%;
 }
 
-/* --- Style for ALBUM & VIEWER --- */
+/* album and img-viewer */
 
 /* folder style */
 .folder-menubar {
@@ -506,7 +506,7 @@ fos-window[name="scramble"] #content {
     display: none !important;
 }
 
-/* Style for window Album */
+/* style for window album */
 fos-window[name="art3d"] {
     min-width: 450px;
     min-height: 350px;
@@ -611,7 +611,7 @@ fos-window[name="art3d"] #content {
     transform: rotate(0deg);
 }
 
-/* Image Viewer Window */
+/* img-viewer window */
 fos-window[name="imgviewer"] {
     width: 650px;
     height: 550px;
@@ -677,7 +677,7 @@ fos-window[name="imgviewer"] #content {
     outline-offset: -4px;
 }
 
-/* Counter display */
+/* counter display */
 #img-counter {
     font-family: 'Courier New', monospace;
     font-size: 13px;
@@ -692,7 +692,7 @@ fos-window[name="imgviewer"] #content {
     text-align: center;
 }
 
-/* Content area with frame */
+/* content area with frame */
 .viewer-content {
     flex: 1;
     background-color: #808080;
@@ -722,7 +722,7 @@ fos-window[name="imgviewer"] #content {
     -webkit-user-drag: none;
 }
 
-/* Statusbar */
+/* statusbar */
 .viewer-statusbar {
     background-color: #c0c0c0;
     border-top: 2px solid;
@@ -735,7 +735,7 @@ fos-window[name="imgviewer"] #content {
     box-shadow: inset -1px -1px 0 #dfdfdf;
 }
 
-/* Loading animation */
+/* loading animation */
 @keyframes pulse {
 
     0%,
@@ -777,7 +777,7 @@ fos-window[name="imgviewer"] #content {
     background: #a0a0a0;
 }
 
-/* Placeholder for fault loading img */
+/* placeholder for fault loading img */
 #main-display-img[alt="Image not found"] {
     background: linear-gradient(45deg, #ccc 25%, transparent 25%),
         linear-gradient(-45deg, #ccc 25%, transparent 25%),
@@ -788,7 +788,7 @@ fos-window[name="imgviewer"] #content {
     min-height: 300px;
 }
 
-/* Focus visible for accessibility */
+/* focus visible for accessibility */
 #art3dicons fos-icon:focus-visible {
     outline: 2px dotted #000;
     outline-offset: 2px;

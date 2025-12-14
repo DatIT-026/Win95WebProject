@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
   <link rel="stylesheet" href="./css/style.css">
   <title>Google</title>
 </head>
+
 <body>
   <div class="container">
     <div class="main">
@@ -18,7 +20,8 @@
       <section>
         <br>
         <input type="submit" value="Google Search" onclick="showNotification();">
-        <a href="https://datit-026.github.io/thu-khoa-ly/"><input type="submit" value="I'm feeling lucky"></a>
+        <a href="https://datit-026.github.io/thu-khoa-ly-mobile-version/"><input type="submit"
+            value="I'm feeling lucky"></a>
       </section>
     </div>
     <div class="bottom">
@@ -52,45 +55,45 @@
   </div>
 
   <script>
-    function showNotification() {
-      var notification = document.getElementById('notification');
-      notification.style.display = 'block';
-      setTimeout(function() {
-        notification.style.display = 'none';
-      }, 2000); // hide notification after 2 seconds
-    }
+    // Chuyển thành Arrow Function
+    const showNotification = () => {
+      const notification = document.getElementById('notification');
+      if (notification) {
+        notification.style.display = 'block';
+        setTimeout(() => notification.style.display = 'none', 2000);
+      }
+    };
 
-    window.onload = function() {
-      var notification = document.getElementById('notification');
-      notification.style.display = 'none';
+    window.onload = () => {
+      const notification = document.getElementById('notification');
+      if (notification) notification.style.display = 'none';
     };
 
     try {
-        if (window.parent && window.parent.document) {
-            var parentInput = window.parent.document.getElementById('url-input');
-            if (parentInput) {
-                parentInput.value = "http://www.google.com/";
-            }
-        }
+      const getParentInput = () => window.parent?.document?.getElementById('url-input');
 
-        var links = document.querySelectorAll('a');
-        links.forEach(function(link) {
-            link.addEventListener('click', function() {
-                var targetUrl = this.href;
-                
-                if (targetUrl && targetUrl !== "#" && !targetUrl.startsWith("javascript")) {
-                    if (window.parent && window.parent.document) {
-                        var parentInput = window.parent.document.getElementById('url-input');
-                        if (parentInput) {
-                            parentInput.value = targetUrl;
-                        }
-                    }
-                }
-            });
+      const initInput = getParentInput();
+      if (initInput) initInput.value = "http://www.google.com/";
+
+      document.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', (e) => {
+          const targetUrl = e.currentTarget.href;
+          const parentInput = getParentInput();
+
+          if (parentInput) {
+            if (targetUrl.includes("thu-khoa-ly")) {
+              parentInput.value = "http://thu-khoa-ly/";
+            } else if (targetUrl && targetUrl !== "#" && !targetUrl.startsWith("javascript")) {
+              parentInput.value = targetUrl;
+            }
+          }
         });
-      } catch (e) {
-        console.log("Cannot update parent URL");
-      }
+      });
+
+    } catch (e) {
+      console.log("Cross-origin restriction or standalone mode");
+    }
   </script>
 </body>
+
 </html>
