@@ -4,10 +4,12 @@
   box-sizing: border-box;
 }
 
-body, html {
+body,
+html {
   height: 100%;
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
 .container {
@@ -19,10 +21,13 @@ body, html {
   padding: 20px;
   width: 100%;
   box-sizing: border-box;
+  transition: background-color 0.5s ease;
 }
 
 .main {
   text-align: center;
+  z-index: 10;
+  position: relative;
 }
 
 .logo img {
@@ -34,15 +39,17 @@ body, html {
 .bottom {
   display: flex;
   justify-content: center;
+  z-index: 10;
 }
 
 .box {
   background-color: #7EE5DA;
-  width: 100%;          
-  max-width: 600px;     
+  width: 100%;
+  max-width: 600px;
   padding: 20px;
   margin: 10px;
-  box-shadow: 3px 3px 0px rgba(0,0,0,0.2); 
+  box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.2);
+  transition: all 0.5s ease;
 }
 
 ul {
@@ -69,16 +76,98 @@ a:hover {
 
 #notification {
   position: absolute;
-  top: 90%;
+  bottom: 100px;
   left: 50%;
-  transform: translate(-50%, -50%);
-  width: 300px;
-  padding: 10px;
-  background-color: #FF0000;
-  color: #FFFFFF;
-  text-align: center;
-  font-size: 16px;
-  z-index: 9999;
+  transform: translateX(-50%);
+  width: auto;
+  min-width: 200px;
+  max-width: 80%;
+  padding: 5px 10px;
+
+  background-color: #FFFFE1;
+  color: #000000;
+  border: 1px solid #000000;
+  border-radius: 0;
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
+
+  font-family: "MS Sans Serif", Arial, sans-serif;
+  font-size: 13.5px;
+  z-index: 10002;
+}
+
+body.christmas-mode {
+  background-color: #aa1e1e;
+}
+
+body.christmas-mode .box {
+  background-color: #266d26;
+  color: #fff;
+  border: 2px solid #ffd700;
+  box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.5);
+}
+
+body.christmas-mode a {
+  color: #fff;
+  font-weight: bold;
+}
+
+body.christmas-mode input[type="submit"] {
+  background-color: #ffd700;
+  color: #aa1e1e;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+.snowflake {
+  position: fixed;
+  top: -20px;
+  color: #FFF;
+  font-size: 1em;
+  font-family: Arial, sans-serif;
+  text-shadow: 0 0 1px #000;
+  z-index: 1;
+  user-select: none;
+  pointer-events: none;
+  animation-name: fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh);
+  }
+}
+
+.santa-sleigh {
+  position: fixed;
+  top: 10%;
+  left: -150px;
+  font-size: 60px;
+  z-index: 1000;
+  pointer-events: none;
+  animation: flyBy 6s linear forwards;
+}
+
+@keyframes flyBy {
+  0% {
+    left: -150px;
+    transform: rotate(0deg);
+  }
+
+  20% {
+    top: 15%;
+  }
+
+  40% {
+    top: 5%;
+  }
+
+  100% {
+    left: 110%;
+    transform: rotate(-10deg);
+  }
 }
 
 @media (max-width: 570px) {
@@ -91,7 +180,8 @@ a:hover {
     font-size: 16px;
   }
 
-  input[type="submit"], button {
+  input[type="submit"],
+  button {
     width: 45%;
     font-size: 16px;
     margin: 5px 2.5%;
@@ -113,6 +203,6 @@ a:hover {
   #notification {
     width: 90%;
     font-size: 14px;
-    padding: 8px;
+    padding: 10px;
   }
 }

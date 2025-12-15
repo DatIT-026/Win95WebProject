@@ -3,23 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>North Pole Defender</title>
   <link rel="stylesheet" href="https://unpkg.com/98.css" />
-  <title>PC Care</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="antivirus-container">
-    <h1>Antivirus</h1>
-    
+  <div class="snow"></div>
+
+  <div class="main-content">
+    <div class="header-icon">🎅</div>
+    <h1>Naughty List Scanner</h1>
+    <p class="subtitle">Scanning for Grinch-ware...</p>
+
     <div class="progress-container">
       <div id="progress-bar" class="progress-bar"></div>
     </div>
 
     <div class="button-container">
-      <button onclick="scan()">Scan Now</button>
+      <button onclick="scan()">Start Scan</button>
     </div>
     
-    <div id="alert-box" class="alert-box"></div>
+    <div id="alert-box" class="alert-box">
+        <div style="color: #666; text-align: center; margin-top: 80px;">
+            Ready to scan...
+        </div>
+    </div>
   </div>
 
   <script src="script.js"></script>

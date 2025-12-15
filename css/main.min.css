@@ -3,7 +3,7 @@ html {
     height: 100%;
     margin: 0;
     padding: 0;
-    background-color: #008081;
+    background-color: #146B3A;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -87,12 +87,14 @@ fos-menu[name=Start] {
 }
 
 fos-menu[name="Start"]>div {
-    background: linear-gradient(to right, #000080, #1084d0);
+    background: linear-gradient(to bottom, #d42424, #0f5217);
     color: #ffffff;
     font-weight: bold;
     padding: 4px 8px;
     min-width: 150px;
     margin: -2px -2px 0 -2px;
+    text-align: center;
+    border-bottom: 1px solid #fff;
 }
 
 fos-menu[name="Start"] hr {
@@ -109,7 +111,75 @@ fos-icon {
     align-items: center;
     justify-content: center;
     border-radius: 0;
-    font-size: 2em
+    font-size: 2em;
+
+    overflow: visible !important;
+    contain: none !important;
+}
+
+fos-icon::after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    z-index: 100;
+    pointer-events: none;
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    top: -15px;
+    left: -10px;
+
+    filter: drop-shadow(2px 2px 0px rgba(0, 0, 0, 0.5));
+}
+
+fos-icon:hover::after {
+    animation: wiggle 0.5s ease-in-out;
+}
+
+fos-icon[href="thispc"]::after {
+    background-image: url('https://cdn-icons-png.flaticon.com/512/3132/3132707.png');
+    width: 60px;
+    top: 35px;
+    left: 32px;
+}
+
+fos-icon[href="aboutme"]::after {
+    background-image: url('https://cdn-icons-png.flaticon.com/512/744/744546.png');
+    top: -14px;
+    left: 32px;
+    transform: rotate(25deg);
+}
+
+fos-icon[href="games"]::after {
+     background-image: url('https://cdn-icons-png.flaticon.com/512/3247/3247624.png');
+    width: 55px;
+    top: 35px;
+    left: 25px;
+}
+
+fos-icon[href="radio"]::after {
+    background-image: url('https://cdn-icons-png.flaticon.com/512/13114/13114593.png');
+    width: 400px;
+    height: 50px;
+    top: 52px;
+    left: 9px;
+    image-rendering: pixelated;
+}
+
+fos-icon[href="art3d"]::after {
+    background-image: url('https://cdn-icons-png.flaticon.com/512/9004/9004844.png ');
+    width: 45px;
+    top: -10px;
+    left: -10px;
+}
+
+fos-icon[href="browser"]::after {
+    background-image: url('https://cdn-icons-png.flaticon.com/512/2336/2336287.png');
+    transform: rotate(10deg);
+    top: 41px;
+    left: 55px;
+    image-rendering: pixelated;
 }
 
 #mainDesktop>fos-icon>img {
@@ -140,10 +210,11 @@ fos-window {
 }
 
 fos-window::part(top) {
-    background-color: #010081;
+    background: linear-gradient(90deg, #0f5217 0%, #8a0e0e 100%);
     color: #fff;
     font-weight: 700;
-    line-height: 1.2em
+    line-height: 1.2em;
+    text-shadow: 1px 1px 0 #000;
 }
 
 fos-window::part(buttons) {
@@ -166,9 +237,11 @@ fos-menu-item {
 }
 
 fos-menu-item:hover {
-    background: #000080;
+    background: #0f5217;
     color: #ffffff;
 }
+
+
 
 fos-menu-item>img {
     vertical-align: middle;
@@ -254,7 +327,7 @@ fos-menu::part(window) {
 /* browser window */
 fos-window[name="browser"] {
     width: 750px;
-    height: 550px;
+    height: 630px;
     min-width: 320px;
     min-height: 400px;
 }
@@ -884,4 +957,46 @@ fos-window[name="imgviewer"] #content {
     fos-menu {
         bottom: 42px !important;
     }
+}
+
+fos-icon img {
+    filter: drop-shadow(5px 5px 3px rgba(0, 0, 0, .5)) brightness(1.1);
+}
+
+/* --- CHRISTMAS SNOW EFFECT --- */
+.snow-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    background-image:
+        radial-gradient(4px 4px at 10% 10%, #fff, transparent),
+        radial-gradient(6px 6px at 20% 30%, #fff, transparent),
+        radial-gradient(3px 3px at 40% 70%, #fff, transparent),
+        radial-gradient(4px 4px at 50% 10%, #fff, transparent),
+        radial-gradient(3px 3px at 80% 40%, #fff, transparent),
+        radial-gradient(6px 6px at 90% 80%, #fff, transparent),
+        radial-gradient(4px 4px at 15% 60%, #fff, transparent);
+    background-size: 550px 550px;
+    animation: snowfall 10s linear infinite;
+    opacity: 0.8;
+}
+
+@keyframes snowfall {
+    0% {
+        background-position: 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0;
+    }
+
+    100% {
+        background-position: 50px 550px, -20px 550px, 30px 550px, -40px 550px, 10px 550px, -30px 550px, 20px 550px;
+    }
+}
+
+fos-window,
+fos-icon,
+fos-bar {
+    z-index: 10;
 }

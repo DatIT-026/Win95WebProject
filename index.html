@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title> Windows 95 - Version 1.7.0.0 </title>
+    <title> Windows 95 - Version 1.7.1.6 </title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="mobile-web-app-capable" content="yes">
@@ -20,10 +20,10 @@
 </head>
 
 <body>
-    <fos-desktop id="mainDesktop">
+    <fos-desktop id="mainDesktop" iconOffset="9">
         <fos-bar>
             <fos-menu name="Start">
-                <div style="min-width: 150px">Menu (1.7.0.0)</div>
+                <div style="min-width: 150px">🎄 Xmas Edition (1.7.1.6)</div>
                 <hr>
                 <fos-menu-item href="thispc"><img src="img/thispc.png">PC Care</fos-menu-item>
                 <fos-menu-item href="aboutme"><img src="img/artage-io-48161_1588129131.png">About</fos-menu-item>
@@ -51,7 +51,7 @@
             <img src="img/browser.png" alt="Browser" title="Browser">
         </fos-icon>
 
-        <fos-window name="thispc" title="PC Care" style="width: 375px; height: 275px;">
+        <fos-window name="thispc" title="PC Care" style="width: 542px; height: 558px;">
             <iframe src="app/loadingAV/AV.htm"
                 style="width: 100%; height: 100%; border: none; display: block;"></iframe>
         </fos-window>
@@ -306,6 +306,8 @@
                 </div>
             </div>
         </fos-window>
+
+        <div class="snow-container"></div>
     </fos-desktop>
     <script src="js/main.js"></script>
     <div id="fgbg"></div>

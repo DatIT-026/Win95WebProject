@@ -13,15 +13,16 @@
   <div class="container">
     <div class="main">
       <div class="logo">
-        <img src="./img/google-logo.jpg" alt="logo">
+        <img src="./img/google-logo.jpg" alt="logo" id="main-logo">
       </div>
       <p>Search the web using Google!</p>
+      
       <input type="text" name="search-bar" size="40">
+      
       <section>
         <br>
-        <input type="submit" value="Google Search" onclick="showNotification();">
-        <a href="https://datit-026.github.io/thu-khoa-ly-mobile-version/"><input type="submit"
-            value="I'm feeling lucky"></a>
+        <input type="submit" value="Google Search" onclick="checkEasterEgg();">
+        <a href="#" onclick="startSnow(event)"><input type="submit" value="Merry Christmas"></a>
       </section>
     </div>
     <div class="bottom">
@@ -46,7 +47,7 @@
           <li><input type="text" placeholder="your e-mail"></li>
           <li>
             <a href="https://datit-026.github.io/dattos-archive/"><input type="submit" value="Subscribe"></a>
-            <a href="https://datit-026.github.io/FaceRecognition-Project/">&nbsp Archive</a>
+            <a href="https://datit-026.github.io/ChristmasWinds/">&nbsp Archive</a>
           </li>
         </ul>
       </div>
@@ -55,45 +56,161 @@
   </div>
 
   <script>
-    // Chuyển thành Arrow Function
-    const showNotification = () => {
+    const showNotification = (msg) => {
       const notification = document.getElementById('notification');
       if (notification) {
+        if(msg) notification.innerText = msg;
         notification.style.display = 'block';
-        setTimeout(() => notification.style.display = 'none', 2000);
+        
+        setTimeout(() => {
+          notification.style.display = 'none';
+        }, 3000);
       }
+    };
+
+    const createHintButton = () => {
+      const btn = document.createElement('div');
+      btn.innerHTML = '💡';
+      btn.title = "Click for a Hint";
+      
+      Object.assign(btn.style, {
+        position: 'fixed',
+        bottom: '20px',
+        right: '20px',
+        width: '40px',
+        height: '40px',
+        fontSize: '24px',
+        lineHeight: '36px',
+        textAlign: 'center',
+        background: 'silver', 
+        borderTop: '2px solid #FFFFFF',
+        borderLeft: '2px solid #FFFFFF',
+        borderRight: '2px solid #808080',
+        borderBottom: '2px solid #808080',
+        boxShadow: '1px 1px 0px #000000',
+        borderRadius: '0',
+        cursor: 'pointer',
+        zIndex: '10001',
+        userSelect: 'none',
+        boxSizing: 'border-box' 
+      });
+
+      btn.onmousedown = () => {
+          btn.style.borderTop = '2px solid #808080';
+          btn.style.borderLeft = '2px solid #808080';
+          btn.style.borderRight = '2px solid #FFFFFF';
+          btn.style.borderBottom = '2px solid #FFFFFF';
+          btn.style.paddingTop = '2px';
+          btn.style.paddingLeft = '2px';
+      };
+      btn.onmouseup = () => {
+          btn.style.borderTop = '2px solid #FFFFFF';
+          btn.style.borderLeft = '2px solid #FFFFFF';
+          btn.style.borderRight = '2px solid #808080';
+          btn.style.borderBottom = '2px solid #808080';
+          btn.style.paddingTop = '0';
+          btn.style.paddingLeft = '0';
+      };
+      
+      btn.onclick = () => {
+        const isMobile = window.innerWidth < 570;
+
+        if (isMobile) {
+          showNotification("💡 HINT: Ehh... something went wrong?\nMaybe u should try F12 then Console on Desktop");
+        } else {
+          showNotification("💡 HINT: Try F12 then Console >_");
+        }
+      };
+
+      document.body.appendChild(btn);
     };
 
     window.onload = () => {
       const notification = document.getElementById('notification');
       if (notification) notification.style.display = 'none';
+      
+      try { 
+        console.clear(); 
+        console.log("\n%c🎄 HINT: Santa is watching...\n", "color: red; font-size: 14px; font-weight: bold;");
+        console.log("\n%c🎄 What the heck is going on here?\n", "color: red; font-size: 14px; font-weight: bold;");
+        console.log("\n%c🎄 Oh yeah! Try searching for 'Santa' or 'Noel'.\n", "color: red; font-size: 14px; font-weight: bold;");
+        console.log("\n%c🎄 HINT: Try searching for 'Santa' or 'Noel' 🎅\n", "color: red; font-size: 14px; font-weight: bold;");
+        console.log("\n%c🎄 HINT: Try searching for 'Santa' or 'Noel' 🎅\n", "color: red; font-size: 14px; font-weight: bold;");
+        console.log("\n%c🎄 HINT: Try searching for 'Santa' or 'Noel' 🎅\n", "color: red; font-size: 14px; font-weight: bold;");
+        console.log("\n%c🎄 HINT: Try searching for 'Santa' or 'Noel' 🎅\n", "color: red; font-size: 14px; font-weight: bold;");
+        console.log("\n%c🎄 HINT: Try searching for 'Santa' or 'Noel' 🎅\n", "color: red; font-size: 14px; font-weight: bold;");
+      } catch(e) {}
+      
+      createHintButton();
     };
+
+    const createSnow = () => {
+      const snowflake = document.createElement('div');
+      snowflake.innerHTML = '❄'; 
+      snowflake.classList.add('snowflake');
+      snowflake.style.left = Math.random() * 100 + 'vw';
+      snowflake.style.animationDuration = Math.random() * 3 + 2 + 's'; 
+      snowflake.style.opacity = Math.random();
+      snowflake.style.fontSize = Math.random() * 10 + 10 + 'px';
+      document.body.appendChild(snowflake);
+      setTimeout(() => snowflake.remove(), 5000);
+    };
+
+    const startSnow = (e) => {
+      if(e) e.preventDefault();
+      setInterval(createSnow, 100);
+      showNotification("❄️ Let it snow! ❄️");
+    };
+
+    const checkEasterEgg = () => {
+      const input = document.querySelector('input[name="search-bar"]');
+      const value = input.value.toLowerCase().trim();
+      const logo = document.getElementById('main-logo');
+
+      if (value === "santa" || value === "christmas" || value === "noel" || value === "giang sinh") {
+        document.body.classList.toggle('christmas-mode');
+        
+        if (document.body.classList.contains('christmas-mode')) {
+          logo.src = "./img/santa.jpg"; 
+          showNotification("🎅 Ho Ho Ho! Merry Christmas!");
+          summonSanta(); 
+        } else {
+          logo.src = "./img/google-logo.jpg";
+          showNotification("Back to normal mode.");
+        }
+      } else {}
+    };
+
+    const summonSanta = () => {
+      const existingSanta = document.querySelector('.santa-sleigh');
+      if(existingSanta) existingSanta.remove();
+      const santa = document.createElement('div');
+      santa.innerHTML = '🎅🛷🦌💨'; 
+      santa.classList.add('santa-sleigh');
+      document.body.appendChild(santa);
+      setTimeout(() => santa.remove(), 6000);
+    }
 
     try {
       const getParentInput = () => window.parent?.document?.getElementById('url-input');
-
       const initInput = getParentInput();
       if (initInput) initInput.value = "http://www.google.com/";
-
       document.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', (e) => {
+          if(e.currentTarget.innerHTML.includes("Merry Christmas")) return;
           const targetUrl = e.currentTarget.href;
           const parentInput = getParentInput();
-
           if (parentInput) {
-            if (targetUrl.includes("thu-khoa-ly")) {
-              parentInput.value = "http://thu-khoa-ly/";
+            if (targetUrl.includes("ChristmasWinds")) {
+              parentInput.value = "http://christmaswinds.com/";
             } else if (targetUrl && targetUrl !== "#" && !targetUrl.startsWith("javascript")) {
               parentInput.value = targetUrl;
             }
           }
         });
       });
-
-    } catch (e) {
-      console.log("Cross-origin restriction or standalone mode");
-    }
-  </script>
+    } catch (e) {}
+</script>
 </body>
 
 </html>

@@ -1,151 +1,193 @@
-html,
-body {
-  background-color: #c0c0c0;
-  background-color: #c0c0c0;
-  text-align: center;
-  align-items: center;
-  overflow: hidden;
-}
-
-h1 {
-  font-family: 'MS Sans Serif', Arial, sans-serif;
-  color: #000;
-  font-size: 34px;
-  margin-bottom: 20px;
-}
-
-.button-container {
-  margin-top: 20px;
-}
-
-button {
-  padding: 5px 15px;
-  font-family: inherit;
-  font-size: 14px;
-  cursor: pointer;
-  background: #c0c0c0;
-  border: 2px solid #fff;
-  border-right-color: #000;
-  border-bottom-color: #000;
-}
-
-.title button {
-  /*position:absolute;
-  right:3px;
-  top:3px;*/
-  margin: 2px 2px 2px 0;
-  float: right;
-  width: 14px;
-  height: 13.5px;
-  background: #C0C0C0;
-  border-width: 1px;
-  border-color: #FFFFFF #808080 #808080 #FFFFFF;
+html, body {
+  margin: 0;
   padding: 0;
-  font-size: 9px;
-  font-weight: bold;
-  font-family: Tahoma;
-  text-align: center;
-  focus: none;
-}
-
-div.body {
-  padding: 13px 12px 12px;
   height: 100%;
-  width: calc(100% - 26px);
-  display: inline-block;
-}
-
-button:hover {
-  background-color: #dcdcdc;
-}
-
-button:active {
-  border: 2px solid #000;
-  border-right-color: #fff;
-  border-bottom-color: #fff;
-}
-
-.progress-container {
-  max-width: 400px;
-  min-width: 250px;
-  height: 20px;
-  background-color: #fff;
-  border: 2px solid #808080;
-  border-right-color: #fff;
-  border-bottom-color: #fff;
-  margin-bottom: 20px;
-}
-
-.progress-bar {
-  height: 100%;
-  background-color: #000080;
-  width: 0%;
-}
-
-.alert-box {
-  margin-top: 20px;
-  padding: 10px;
-  color: #000;
-  border: 2px solid #000;
-  display: none;
-}
-
-
-:root {
-  --text-color: #222222;
-  --surface: #c0c0c0;
-  --button-highlight: #ffffff;
-  --button-face: #dfdfdf;
-  --button-shadow: #808080;
-  --window-frame: #0a0a0a;
-  --dialog-blue: #000080;
-  --dialog-blue-light: #1084d0;
-  --dialog-gray: #808080;
-  --dialog-gray-light: #b5b5b5;
-  --link-blue: #0000ff;
-
-
-  --border-width: 1px;
-  --border-raised-outer: inset -1px -1px var(--window-frame),
-    inset 1px 1px var(--button-highlight);
-  --border-raised-inner: inset -2px -2px var(--button-shadow),
-    inset 2px 2px var(--button-face);
-  --border-sunken-outer: inset -1px -1px var(--button-highlight),
-    inset 1px 1px var(--window-frame);
-  --border-sunken-inner: inset -2px -2px var(--button-face),
-    inset 2px 2px var(--button-shadow);
-
-}
-
-body {
-  font-family: Arial;
-  font-size: 12px;
-  color: var(--text-color);
+  width: 100%;
+  background-color: #8a0e0e; 
+  background-image: radial-gradient(#b30000 15%, transparent 16%),
+  radial-gradient(#b30000 15%, transparent 16%);
+  background-size: 20px 20px;
+  background-position: 0 0, 10px 10px;
+  
+  font-family: 'MS Sans Serif', Arial, sans-serif;
+  color: white;
+  overflow: hidden;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-button,
-li[role=tab] {
-  font-family: "Pixelated MS Sans Serif", Arial;
-  -webkit-font-smoothing: none;
-  font-size: 13px;
+.snow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-image: radial-gradient(circle, #fff 2px, transparent 2.5px);
+  background-size: 30px 30px;
+  opacity: 0.4;
+  animation: snowfall 10s linear infinite;
+  z-index: 1;
 }
 
-button,
-input[type="submit"],
-input[type="reset"] {
-  box-sizing: border-box;
-  border: none;
-  color: transparent;
-  text-shadow: 0 0 var(--text-color);
-  background: var(--surface);
-  box-shadow: var(--border-raised-outer), var(--border-raised-inner);
-  border-radius: 0;
+@keyframes snowfall {
+  from { background-position: 0 0; }
+  to { background-position: 0 100vh; }
+}
 
-  min-width: 85px;
-  min-height: 33px;
-  padding: 0 12px;
+.main-content {
+  position: relative;
+  z-index: 10;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.3);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+.header-icon {
+  font-size: 40px;
+  margin-bottom: -10px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+h1 {
+  font-size: 24px;
+  margin: 10px 0 5px 0;
+  color: #fff;
+  text-shadow: 2px 2px 0px #0f5217;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.subtitle {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 14px;
+  font-style: italic;
+  opacity: 0.9;
+}
+
+.progress-container {
+  width: 100%;
+  height: 24px;
+  background-color: #fff;
+  border: 2px inset #fff;
+  margin-bottom: 20px;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: #0f5217;
+  background-image: linear-gradient(
+    45deg, 
+    rgba(255, 255, 255, 0.2) 25%, 
+    transparent 25%, 
+    transparent 50%, 
+    rgba(255, 255, 255, 0.2) 50%, 
+    rgba(255, 255, 255, 0.2) 75%, 
+    transparent 75%, 
+    transparent
+  );
+  background-size: 20px 20px;
+  width: 0%;
+  transition: width 0.1s linear;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+button {
+  font-size: 14px !important;
+  font-weight: bold !important;
+  min-width: 120px;
+  padding: 6px !important;
+  cursor: pointer;
+}
+
+button:active {
+  transform: translate(1px, 1px);
+}
+
+.alert-box {
+  margin-top: 15px;
+  padding: 10px;
+  background-color: #000;
+  color: #ff3333;
+  border: 2px inset #808080;
+  display: none;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 12px;
+  text-align: left;
+  height: 150px;
+  overflow-y: auto;
+  box-shadow: inset 0 0 10px #330000;
+}
+
+.alert-box ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.alert-box li {
+  margin-bottom: 4px;
+  border-bottom: 1px dashed #333;
+}
+
+/* Scrollbar cho khung virus */
+.alert-box::-webkit-scrollbar {
+  width: 10px;
+  background: #333;
+}
+.alert-box::-webkit-scrollbar-thumb {
+  background: #d42424;
+  border: 1px solid #fff;
+}
+
+.alert-box {
+  margin-top: 20px;
+  background-color: #000; /* Nền đen tuyệt đối */
+  border: 2px inset #808080; /* Viền lõm kiểu Win95 */
+  
+  /* Kích thước cố định để danh sách cuộn bên trong */
+  height: 220px; 
+  width: 100%;
+  box-sizing: border-box;
+  
+  /* Font chữ kiểu Hacker/Terminal */
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 13px;
+  text-align: left;
+  padding: 10px;
+  
+  /* Quan trọng: Cho phép cuộn nếu danh sách dài */
+  overflow-y: auto; 
+  
+  /* Bóng đổ bên trong tạo chiều sâu */
+  box-shadow: inset 0 0 10px #000;
+}
+
+/* Tùy chỉnh thanh cuộn cho đẹp */
+.alert-box::-webkit-scrollbar {
+  width: 12px;
+  background: #333;
+}
+.alert-box::-webkit-scrollbar-thumb {
+  background: #d42424; /* Thanh kéo màu đỏ */
+  border: 1px solid #fff;
+}
+
+.alert-box li {
+  list-style: none;
+  border-bottom: 1px dotted #333; /* Đường gạch mờ giữa các virus */
 }
