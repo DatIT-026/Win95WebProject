@@ -1084,24 +1084,29 @@ ul.xmas-list li::before {
 
 .w95-button {
     background: #d32f2f !important;
-    /* Đỏ */
     color: #fff !important;
     border-top-color: #ffcdd2 !important;
     border-left-color: #ffcdd2 !important;
     border-right-color: #880e4f !important;
     border-bottom-color: #880e4f !important;
     font-weight: bold;
-    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-    transition: all 0.2s;
+    box-shadow: 1px 1px 0px #000;
+    transition: none !important; 
+    position: relative;
 }
 
 .w95-button:hover {
     background: #2e7d32 !important;
-    transform: translateY(-2px);
+    transform: none !important; 
 }
 
-.w95-button img {
-    filter: drop-shadow(0 0 2px white);
+.w95-button:active {
+    border-top-color: #880e4f !important;
+    border-left-color: #880e4f !important;
+    border-right-color: #ffcdd2 !important;
+    border-bottom-color: #ffcdd2 !important;
+    transform: translate(1px, 1px) !important;
+    box-shadow: none !important;
 }
 
 .w95-fieldset a[href^="mailto"] {

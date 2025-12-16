@@ -79,6 +79,9 @@ const createThumbnails = () => {
         const img = new Image();
         img.src = d.path;
         img.loading = "lazy";
+
+        img.decoding = "async";
+
         img.onerror = () => img.src = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48"><rect fill="#ccc" width="48" height="48"/><text x="50%" y="50%" text-anchor="middle" dy=".3em" fill="#666" font-family="Arial" font-size="10">No Image</text></svg>';
         
         ic.appendChild(img);

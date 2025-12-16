@@ -52,8 +52,7 @@
         </fos-icon>
 
         <fos-window name="thispc" title="PC Care" style="width: 542px; height: 558px;">
-            <iframe src="app/loadingAV/AV.htm"
-                style="width: 100%; height: 100%; border: none; display: block;"></iframe>
+            <iframe src="app/loadingAV/AV.htm" title="Antivirus Scan" style="width: 100%; height: 100%; border: none; display: block;"></iframe>
         </fos-window>
 
         <fos-window name="browser" title="Browser">
@@ -65,14 +64,14 @@
 
                     <div id="url-wrapper">
                         <span style="color: #888; font-size: 12px;">🌎</span>
-                        <input type="text" id="url-input" value="https://google.com"
+                        <input type="text" id="url-input" aria-label="Address bar" value="https://google.com"
                             onkeypress="if(event.key==='Enter') navigateToUrl()">
                     </div>
 
                     <button class="go-btn" onclick="navigateToUrl()">Go</button>
                 </div>
 
-                <iframe id="browser-frame" frameborder="0" src="app/browser/index.html" allowfullscreen="yes"></iframe>
+                <iframe id="browser-frame" title="Web Browser Content" frameborder="0" src="app/browser/index.html" allowfullscreen="yes"></iframe>
             </div>
         </fos-window>
 
@@ -136,7 +135,7 @@
                 <div class="pixel-lights"></div>
                 <div style="display: flex; margin-bottom: 10px;">
                     <div class="w95-avatar-frame">
-                        <img src="img/young-me.jpg" style="width: 100%; height: 100%; object-fit: cover;" />
+                        <img src="img/young-me.webp" style="width: 100%; height: 100%; object-fit: cover;" />
                     </div>
 
                     <fieldset class="w95-fieldset" style="flex-grow: 1; margin: 0;">
@@ -290,7 +289,7 @@
         </script>
 
         <fos-window name="radio" title="Radio" class="zero">
-            <iframe frameborder="0" src="app/radio/index.html" allowfullscreen="yes" width="100%"
+            <iframe frameborder="0" src="app/radio/index.html" title="Radio Player" allowfullscreen="yes" width="100%"
                 height="100%"></iframe>
         </fos-window>
 
@@ -301,8 +300,7 @@
                 <span><u>V</u>iew</span>
                 <span><u>H</u>elp</span>
             </div>
-            <fos-desktop id="art3dicons" style="background-color: white; border-top: 2px solid #808080;">
-            </fos-desktop>
+            <div id="art3dicons" style="background-color: white; border-top: 2px solid #808080;"></div>
             <div class="folder-statusbar">Loading...</div>
         </fos-window>
 
