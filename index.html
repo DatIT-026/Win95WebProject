@@ -133,6 +133,7 @@
 
         <fos-window name="aboutme" title="About Me">
             <div class="w95-container">
+                <div class="pixel-lights"></div>
                 <div style="display: flex; margin-bottom: 10px;">
                     <div class="w95-avatar-frame">
                         <img src="img/young-me.jpg" style="width: 100%; height: 100%; object-fit: cover;" />
@@ -204,8 +205,14 @@
                 <fos-icon href="invaderz" name="InvaderZ" fixed="true">
                     <img src="img/invaderz.png" alt="InvaderZ" title="InvaderZ">
                 </fos-icon>
-                <fos-icon href="scramble" name="Scramble" fixed="tru">
+                <fos-icon href="scramble" name="Scramble" fixed="true">
                     <img src="img/scramble.png" alt="Scramble" title="Scramble">
+                </fos-icon>
+                <fos-icon href="secret_santa" name="SSanta" fixed="true">
+                    <img src="img/ss.png" alt="Secret Santa" title="Secret Santa">
+                </fos-icon>
+                <fos-icon href="santy" name="5474N.exe" fixed="true">
+                    <img src="img/santy.png" alt="Santy" title="I SEE YOU" onerror="this.src='img/games.png'">
                 </fos-icon>
             </fos-desktop>
         </fos-window>
@@ -234,6 +241,18 @@
                 <button onclick="loadGame(this, 'scramble')">Load Game</button>
             </div>
         </fos-window>
+        <fos-window name="secret_santa" title="Secret Santa" class="secret_santa">
+            <div class="game-placeholder" data-src="https://itch.io/embed-upload/9357702">
+                <p>Click to load game</p>
+                <button onclick="loadGame(this, 'Secret Santa')">Load Game</button>
+            </div>
+        </fos-window>
+        <fos-window name="santy" title="Sleep.Tight.Die.2Nite" class="santy">
+            <div class="game-placeholder" data-src="https://itch.io/embed-upload/7079968">
+                <p>Click to load game</p>
+                <button onclick="loadGame(this, 'santy')">Load Game</button>
+            </div>
+        </fos-window>
 
         <script>
             function loadGame(button, gameName) {
@@ -249,7 +268,7 @@
             }
 
             document.addEventListener('DOMContentLoaded', function () {
-                const gameWindows = ['cmiyc', 'genius', 'invaderz', 'scramble'];
+                const gameWindows = ['cmiyc', 'genius', 'invaderz', 'scramble', 'secret_santa', 'santy'];
                 gameWindows.forEach(gameName => {
                     const gameWindow = document.querySelector(`fos-window[name="${gameName}"]`);
                     if (gameWindow) {

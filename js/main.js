@@ -115,7 +115,7 @@ const clock = () => {
 };
 
 const manageAudio = () => {
-    const games = ['cmiyc', 'genius', 'invaderz', 'scramble', 'radio'];
+    const games = ['cmiyc', 'genius', 'invaderz', 'scramble', 'santy', 'secret_santa', 'radio'];
     
     new MutationObserver(muts => muts.forEach(m => {
         if (m.type === 'attributes' && m.attributeName === 'style') {

@@ -152,7 +152,7 @@ fos-icon[href="aboutme"]::after {
 }
 
 fos-icon[href="games"]::after {
-     background-image: url('https://cdn-icons-png.flaticon.com/512/3247/3247624.png');
+    background-image: url('https://cdn-icons-png.flaticon.com/512/3247/3247624.png');
     width: 55px;
     top: 35px;
     left: 25px;
@@ -287,6 +287,24 @@ fos-menu::part(window) {
     max-height: 100%
 }
 
+.santy {
+    left: 0;
+    top: 0;
+    width: 1280px;
+    height: 720px;
+    max-width: 100%;
+    max-height: 100%
+}
+
+.secret_santa {
+    left: 0;
+    top: 0;
+    width: 500px;
+    height: 500px;
+    max-width: 100%;
+    max-height: 100%
+}
+
 #clock {
     position: absolute;
     right: 10px;
@@ -414,24 +432,41 @@ fos-window[name="browser"] {
 
 /* about me window */
 .w95-container {
-    padding: 10px;
-    background-color: #c0c0c0;
+    padding: 20px;
     font-family: 'MS Sans Serif', Arial, sans-serif;
     font-size: 13px;
     height: 100%;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
+    
+    background-color: #1b5e20;
+    background-image: 
+        linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+        repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 15px, 
+            rgba(139, 0, 0, 0.3) 15px,
+            rgba(139, 0, 0, 0.3) 25px
+        );
 }
 
 .w95-fieldset {
-    border: 1px solid #c0c0c0;
-    border-top-color: #ffffff;
-    border-left-color: #ffffff;
-    border-right-color: #808080;
-    border-bottom-color: #808080;
-    padding: 8px;
-    margin-bottom: 10px;
+    background-color: rgba(255, 255, 255, 0.9) !important;
+    border-width: 2px !important;
+    border-style: solid !important;
+    border-color: #0fb823 #b71c1c #b71c1c #0fb823 !important;
+    box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.5);
+    color: #000;
+    text-shadow: none;
+}
+
+.w95-fieldset > div[style*="border"] {
+    border-width: 2px !important;
+    border-style: solid !important;
+    border-color: #b71c1c #0fb823 #b71c1c #0fb823 !important;
+    background-color: #fff;
 }
 
 .w95-legend {
@@ -999,4 +1034,118 @@ fos-window,
 fos-icon,
 fos-bar {
     z-index: 10;
+}
+
+.w95-avatar-frame {
+    position: relative;
+    border: 4px solid transparent !important;
+    background: linear-gradient(#fff, #fff) padding-box,
+        repeating-linear-gradient(45deg, #ff0000 0, #ff0000 10px, #ffffff 10px, #ffffff 20px) border-box;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.w95-avatar-frame::after {
+    content: '❄️';
+    position: absolute;
+    bottom: -10px;
+    right: -10px;
+    font-size: 24px;
+    background: white;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ccc;
+}
+
+.w95-legend {
+    background-color: #d32f2f !important;
+    color: #fff !important;
+    border: 2px outset #ffcccc !important; 
+    box-shadow: 2px 2px 0px #000 !important; 
+    font-family: 'MS Sans Serif', 'Segoe UI', sans-serif;
+    font-weight: bold;
+    padding: 2px 8px;
+    text-shadow: 1px 1px 0 #000;
+    margin-left: 10px;
+}
+
+ul.xmas-list {
+    list-style-image: none !important;
+}
+
+ul.xmas-list li::before {
+    content: '🎄';
+    margin-right: 8px;
+    margin-left: -20px;
+}
+
+.w95-button {
+    background: #d32f2f !important;
+    /* Đỏ */
+    color: #fff !important;
+    border-top-color: #ffcdd2 !important;
+    border-left-color: #ffcdd2 !important;
+    border-right-color: #880e4f !important;
+    border-bottom-color: #880e4f !important;
+    font-weight: bold;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    transition: all 0.2s;
+}
+
+.w95-button:hover {
+    background: #2e7d32 !important;
+    transform: translateY(-2px);
+}
+
+.w95-button img {
+    filter: drop-shadow(0 0 2px white);
+}
+
+.w95-fieldset a[href^="mailto"] {
+    color: #d32f2f !important;
+    font-weight: bold;
+    background-color: #fff;
+    padding: 2px 5px;
+    border-radius: 4px;
+}
+
+.pixel-lights {
+    position: absolute;
+    top: -6px;
+    left: 4px;
+    right: 4px;
+    height: 12px;
+    z-index: 20;
+    pointer-events: none;
+
+    background-image:
+        linear-gradient(to bottom, transparent 4px, #333 4px, #333 6px, transparent 6px),
+        linear-gradient(to right,
+            #ff0000 0%, #ff0000 50%,
+            #00ff00 50%, #00ff00 100%
+        );
+
+    background-size:
+        100% 100%,
+        30px 10px;
+    background-repeat: no-repeat, repeat-x;
+    background-position: 0 0, 0 1px;
+    animation: blink-pixel 1s steps(2) infinite;
+}
+
+@keyframes blink-pixel {
+    0% {
+        background-image:
+            linear-gradient(to bottom, transparent 4px, #333 4px, #333 6px, transparent 6px),
+            linear-gradient(to right, #ff0000 0%, #ff0000 50%, #00ff00 50%, #00ff00 100%);
+    }
+
+    50% {
+        background-image:
+            linear-gradient(to bottom, transparent 4px, #333 4px, #333 6px, transparent 6px),
+            linear-gradient(to right, #00ff00 0%, #00ff00 50%, #ff0000 50%, #ff0000 100%);
+    }
 }

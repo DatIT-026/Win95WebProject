@@ -143,16 +143,17 @@ body.christmas-mode input[type="submit"] {
 .santa-sleigh {
   position: fixed;
   top: 10%;
-  left: -150px;
+  right: -150px;
   font-size: 60px;
   z-index: 1000;
   pointer-events: none;
+  white-space: nowrap;
   animation: flyBy 6s linear forwards;
 }
 
 @keyframes flyBy {
   0% {
-    left: -150px;
+    right: -150px;
     transform: rotate(0deg);
   }
 
@@ -165,7 +166,7 @@ body.christmas-mode input[type="submit"] {
   }
 
   100% {
-    left: 110%;
+    right: 120%;
     transform: rotate(-10deg);
   }
 }
