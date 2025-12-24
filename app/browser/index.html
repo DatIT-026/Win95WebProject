@@ -144,22 +144,38 @@
       createHintButton();
     };
 
+    let snowInterval = null;
+
     const createSnow = () => {
       const snowflake = document.createElement('div');
       snowflake.innerHTML = '❄'; 
       snowflake.classList.add('snowflake');
       snowflake.style.left = Math.random() * 100 + 'vw';
-      snowflake.style.animationDuration = Math.random() * 3 + 2 + 's'; 
+      
+      snowflake.style.animationDuration = Math.random() * 3 + 4 + 's'; 
       snowflake.style.opacity = Math.random();
+      
       snowflake.style.fontSize = Math.random() * 10 + 10 + 'px';
+      
       document.body.appendChild(snowflake);
-      setTimeout(() => snowflake.remove(), 5000);
+      
+      setTimeout(() => snowflake.remove(), 7000);
     };
 
     const startSnow = (e) => {
       if(e) e.preventDefault();
-      setInterval(createSnow, 100);
-      showNotification("❄️ Let it snow! ❄️");
+
+      if (snowInterval) {
+        clearInterval(snowInterval);
+        snowInterval = null;
+        
+        document.querySelectorAll('.snowflake').forEach(el => el.remove());
+        
+        showNotification("🚫 Snow stopped!");
+      } else {
+        snowInterval = setInterval(createSnow, 400); 
+        showNotification("❄️ Let it snow! ❄️");
+      }
     };
 
     const checkEasterEgg = () => {

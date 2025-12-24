@@ -2,6 +2,7 @@ const $ = s => document.querySelector(s);
 const $c = t => document.createElement(t);
 
 let loadedImages = [], currIdx = 0;
+let albumLoaded = false;
 const art3d = $('#art3dicons');
 const customFileNames = ["new-me.jpg", "comic.jpg"];
 
@@ -13,62 +14,24 @@ const imageExists = url => new Promise(r => {
 });
 
 const detectImages = async () => {
-    if (art3d) art3d.innerHTML = '<div style="padding:20px;text-align:center;font-family:MS Sans Serif;color:#808080;">Loading images...</div>';
-    
+    if (art3d) art3d.innerHTML = '<div style="padding:20px;text-align:center;color:#808080;">Loading...</div>';
     let numeric = [];
-    for (let s = 1; s <= 11; s += 10) {
-        const res = await Promise.all(
-            Array.from({ length: Math.min(10, 11 - s + 1) }, (_, i) => {
-                const n = (s + i).toString(), p = `3d/${n}.jpg`;
-                return imageExists(p).then(e => e ? { path: p, name: `${n}.jpg` } : null);
-            })
-        );
-        const valid = res.filter(Boolean);
-        numeric = [...numeric, ...valid];
-        if (!valid.length && numeric.length > 5) break;
+    for (let s = 1; s <= 5; s += 10) {
+        const res = await Promise.all(Array.from({ length: Math.min(10, 5 - s + 1) }, (_, i) => {
+            const n = (s + i).toString(), p = `3d/${n}.jpg`;
+            return imageExists(p).then(e => e ? { path: p, name: `${n}.jpg` } : null);
+        }));
+        numeric = [...numeric, ...res.filter(Boolean)];
+        if (!res.filter(Boolean).length && numeric.length > 5) break;
     }
-
     const custom = (await Promise.all(customFileNames.map(n => {
         const p = `3d/${n}`;
         return imageExists(p).then(e => e ? { path: p, name: n } : null);
     }))).filter(Boolean);
-
+    
     loadedImages = [...numeric, ...custom];
     if (art3d) art3d.innerHTML = '';
     return loadedImages.length;
-};
-
-const updateViewer = () => {
-    currIdx = (currIdx + loadedImages.length) % loadedImages.length;
-    const img = loadedImages[currIdx];
-    if (!img) return;
-
-    const el = $('#main-display-img');
-    if (el) {
-        el.src = img.path;
-        el.alt = img.name;
-        el.onerror = () => { el.alt = 'Image not found'; el.style.backgroundColor = '#ccc'; };
-    }
-    
-    const cnt = $('#img-counter');
-    if (cnt) cnt.textContent = `${currIdx + 1}/${loadedImages.length}`;
-
-    const win = $('fos-window[name="imgviewer"]');
-    if (win) {
-        win.setAttribute('title', `Image Viewer - ${img.name}`);
-        const t = win.shadowRoot?.querySelector('#winTitle');
-        if (t) t.textContent = `Image Viewer - ${img.name}`;
-    }
-};
-
-const openViewer = idx => {
-    currIdx = idx;
-    updateViewer();
-    const win = $('fos-window[name="imgviewer"]');
-    if (win) {
-        win.style.display = 'block';
-        win.bringFront();
-    }
 };
 
 const createThumbnails = () => {
@@ -77,102 +40,137 @@ const createThumbnails = () => {
         const ic = $c('fos-icon');
         ic.setAttribute('tabindex', '0');
         const img = new Image();
-        img.src = d.path;
         img.loading = "lazy";
-
-        img.decoding = "async";
-
-        img.onerror = () => img.src = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48"><rect fill="#ccc" width="48" height="48"/><text x="50%" y="50%" text-anchor="middle" dy=".3em" fill="#666" font-family="Arial" font-size="10">No Image</text></svg>';
-        
+        img.src = d.path;
         ic.appendChild(img);
         art3d.appendChild(ic);
-        
         const open = () => openViewer(i);
-        ic.addEventListener('click', open);
-        ic.addEventListener('dblclick', open);
-        ic.addEventListener('keydown', e => (e.key === 'Enter' || e.key === ' ') && (e.preventDefault(), open()));
+        ic.onclick = open;
     });
     const sb = $('.folder-statusbar');
-    if (sb) sb.textContent = `${loadedImages.length} object(s)`;
+    if (sb) { sb.style.display = 'block'; sb.textContent = `${loadedImages.length} object(s)`; }
+};
+
+const loadAlbumLogic = async () => {
+    if (albumLoaded) return;
+    albumLoaded = true;
+    if (await detectImages() > 0) createThumbnails();
+    else if (art3d) art3d.innerHTML = '<div>No images</div>';
+};
+
+const TemplateManager = {
+    apps: ['browser', 'radio', 'thispc', 'aboutme', 'games'],
+    
+    init: () => {
+        const observer = new MutationObserver(mutations => {
+            mutations.forEach(m => {
+                if (m.attributeName === 'style' && m.target.tagName === 'FOS-WINDOW') {
+                    TemplateManager.checkWindow(m.target);
+                }
+            });
+        });
+        
+        observer.observe(document.body, { subtree: true, attributes: true, attributeFilter: ['style'] });
+    },
+
+    checkWindow: (win) => {
+        const name = win.getAttribute('name');
+        
+        if (name === 'art3d' && win.style.display !== 'none') {
+            loadAlbumLogic();
+            return;
+        }
+
+        if (TemplateManager.apps.includes(name)) {
+            const wrapper = win.querySelector(`#wrapper-${name}`);
+            if (!wrapper) return;
+
+            const isVisible = win.style.display !== 'none';
+            const hasContent = wrapper.hasChildNodes();
+
+            if (isVisible && !hasContent) {
+                const tpl = document.getElementById(`tpl-${name}`);
+                if (tpl) {
+                    wrapper.appendChild(tpl.content.cloneNode(true));
+                    
+                    if (name === 'browser' && win.dataset.lastUrl) {
+                        const iframe = wrapper.querySelector('iframe');
+                        if (iframe) iframe.src = win.dataset.lastUrl;
+                    }
+                }
+            } else if (!isVisible && hasContent) {
+                if (name === 'browser') {
+                    const iframe = wrapper.querySelector('iframe');
+                    if (iframe && iframe.contentWindow) {
+                        try { win.dataset.lastUrl = iframe.contentWindow.location.href; } catch(e) {}
+                    }
+                }
+
+                wrapper.innerHTML = '';
+            }
+        }
+    }
+};
+
+const updateViewer = () => {
+    const img = loadedImages[currIdx];
+    if (!img) return;
+    const el = $('#main-display-img');
+    if (el) el.src = img.path;
+    const cnt = $('#img-counter');
+    if (cnt) cnt.textContent = `${currIdx + 1}/${loadedImages.length}`;
+    const win = $('fos-window[name="imgviewer"]');
+    if (win) {
+        win.setAttribute('title', img.name);
+        const t = win.shadowRoot?.querySelector('#winTitle');
+        if (t) t.textContent = img.name;
+    }
+};
+
+const openViewer = idx => {
+    currIdx = idx;
+    updateViewer();
+    $('fos-window[name="imgviewer"]').style.display = 'block';
+    $('fos-window[name="imgviewer"]').bringFront();
 };
 
 window.changeImage = d => {
-    currIdx += d;
+    currIdx = (currIdx + d + loadedImages.length) % loadedImages.length;
     updateViewer();
-    const win = $('fos-window[name="imgviewer"]');
-    if (win) win.bringFront();
 };
-
-document.addEventListener('keydown', e => {
-    const win = $('fos-window[name="imgviewer"]');
-    if (win?.style.display === 'block') {
-        if (e.key === 'ArrowLeft') { e.preventDefault(); window.changeImage(-1); }
-        else if (e.key === 'ArrowRight') { e.preventDefault(); window.changeImage(1); }
-        else if (e.key === 'Escape') win.close();
-    }
-});
 
 const clock = () => {
     const d = new Date(), el = $('#clock');
     if (el) el.innerHTML = `${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}`;
 };
 
-const manageAudio = () => {
-    const games = ['cmiyc', 'genius', 'invaderz', 'scramble', 'santy', 'secret_santa', 'radio'];
-    
-    new MutationObserver(muts => muts.forEach(m => {
-        if (m.type === 'attributes' && m.attributeName === 'style') {
-            const t = m.target;
-            if (t.tagName === 'FOS-WINDOW' && games.includes(t.getAttribute('name'))) {
-                const f = t.querySelector('iframe');
-                if (!f) return;
-
-                if (t.style.display === 'none') {
-                    // Window Hidden: Save src and blank it to stop audio
-                    if (!f.dataset.src) f.dataset.src = f.src;
-                    if (f.src !== 'about:blank') f.src = 'about:blank';
-                } else {
-                    // Window Shown: Restore src if it was blanked
-                    // Works for Start Menu, Icons, and Task switching
-                    if (f.dataset.src && f.src === 'about:blank') {
-                        f.src = f.dataset.src;
-                    }
-                }
-            }
-        }
-    })).observe(document.body, { subtree: true, attributes: true, attributeFilter: ['style'] });
-};
-
 const tweakWindow = (name, w, h) => {
     const win = $(`fos-window[name="${name}"]`);
     if (!win) return;
     
-    const r = win.render.bind(win);
+    const oldRender = win.render.bind(win);
     win.render = function() {
-        r();
+        oldRender();
         if (this.shadowRoot) {
             const s = $c('style');
-            s.textContent = '#content::-webkit-scrollbar{display:none}#content{scrollbar-width:none;-ms-overflow-style:none;overflow:hidden!important}';
+            s.textContent = '#content::-webkit-scrollbar{display:none}#content{overflow:hidden!important}';
             this.shadowRoot.appendChild(s);
         }
     };
     win.render();
 
-    if (w && h && window.innerWidth > 768) {
+    if (w && h) {
         win.top = Math.max(50, (window.innerHeight - h) / 2);
         win.left = Math.max(0, (window.innerWidth - w) / 2);
-        win.render();
     }
 };
 
-document.addEventListener('DOMContentLoaded', async () => {
+document.addEventListener('DOMContentLoaded', () => {
     clock();
     setInterval(clock, 5000);
     
-    if (await detectImages() > 0) createThumbnails();
-    else if (art3d) art3d.innerHTML = '<div style="padding:20px;text-align:center;font-family:MS Sans Serif;">No images found in 3d/ folder</div>';
+    TemplateManager.init();
 
-    manageAudio();
     tweakWindow('radio');
     tweakWindow('art3d');
     

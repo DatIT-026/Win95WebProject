@@ -17,6 +17,15 @@
     <link rel="preload" as="image" href="bg.png">
     <link rel="stylesheet" type="text/css" href="css/main.min.css" />
     <script src="js/fos.min.js"></script>
+    <style>
+        /* CSS bổ sung để đảm bảo Browser layout không bị vỡ khi thêm wrapper */
+        .browser-layout {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            width: 100%;
+        }
+    </style>
 </head>
 
 <body>
@@ -32,6 +41,7 @@
             </fos-menu>
             <div id="clock"></div>
         </fos-bar>
+        
         <fos-icon href="thispc" name="PC Care">
             <img src="img/thispc.png" alt="PC Care" title="PC Care">
         </fos-icon>
@@ -52,8 +62,16 @@
         </fos-icon>
 
         <fos-window name="thispc" title="PC Care" style="width: 542px; height: 558px;">
-            <iframe src="app/loadingAV/AV.htm" title="Antivirus Scan" style="width: 100%; height: 100%; border: none; display: block;"></iframe>
+            <div id="wrapper-thispc" style="width: 100%; height: 100%;">
+                <iframe src="app/loadingAV/AV.htm" title="Antivirus Scan"
+                    style="width: 100%; height: 100%; border: none; display: block;"></iframe>
+            </div>
         </fos-window>
+
+        <template id="tpl-thispc">
+            <iframe src="app/loadingAV/AV.htm" title="Antivirus Scan"
+                style="width: 100%; height: 100%; border: none; display: block;"></iframe>
+        </template>
 
         <fos-window name="browser" title="Browser">
             <div class="browser-layout">
@@ -71,9 +89,17 @@
                     <button class="go-btn" onclick="navigateToUrl()">Go</button>
                 </div>
 
-                <iframe id="browser-frame" title="Web Browser Content" frameborder="0" src="app/browser/index.html" allowfullscreen="yes"></iframe>
+                <div id="wrapper-browser" style="flex: 1; width: 100%; height: 100%; overflow: hidden;">
+                    <iframe id="browser-frame" title="Web Browser Content" frameborder="0" src="app/browser/index.html"
+                        allowfullscreen="yes" style="width: 100%; height: 100%;"></iframe>
+                </div>
             </div>
         </fos-window>
+
+        <template id="tpl-browser">
+            <iframe id="browser-frame" src="app/browser/index.html" title="Web Browser Content" frameborder="0"
+                allowfullscreen="yes" style="width:100%; height:100%"></iframe>
+        </template>
 
         <script>
             const goBack = () => {
@@ -85,7 +111,8 @@
                         frame.src = 'app/browser/index.html';
                     }
                 } catch (e) {
-                    document.getElementById('browser-frame').src = 'app/browser/index.html';
+                    const frame = document.getElementById('browser-frame');
+                    if(frame) frame.src = 'app/browser/index.html';
                 }
             };
 
@@ -97,12 +124,13 @@
                     setTimeout(() => { frame.src = currentSrc; }, 10);
                 } catch (e) {
                     const frame = document.getElementById('browser-frame');
-                    frame.src = frame.src;
+                    if(frame) frame.src = frame.src;
                 }
             };
 
             const goHome = () => {
-                document.getElementById('browser-frame').src = 'app/browser/index.html';
+                const frame = document.getElementById('browser-frame');
+                if(frame) frame.src = 'app/browser/index.html';
             };
 
             const navigateToUrl = () => {
@@ -121,7 +149,8 @@
 
             document.addEventListener('DOMContentLoaded', () => {
                 const urlInput = document.getElementById('url-input');
-                if (document.getElementById('browser-frame') && urlInput) {
+                // Check if element exists before adding event listener to avoid errors if window not open
+                if (urlInput) {
                     urlInput.value = 'http://www.google.com/';
                     urlInput.addEventListener('keypress', (e) => {
                         if (e.key === 'Enter') navigateToUrl();
@@ -193,6 +222,11 @@
                 </fieldset>
             </div>
         </fos-window>
+
+        <template id="tpl-aboutme">
+            <div class="w95-container"></div>
+        </template>
+
         <fos-window name="games" title="Games" style="width: 370px; height: 280px;">
             <fos-desktop id="gamesIcons">
                 <fos-icon href="cmiyc" name="CMIYC" fixed="true">
@@ -215,6 +249,10 @@
                 </fos-icon>
             </fos-desktop>
         </fos-window>
+
+        <template id="tpl-games">
+            <div id="gamesIcons"></div>
+        </template>
 
         <fos-window name="cmiyc" title="Catch Me If You Can" class="zero">
             <div class="game-placeholder" data-src="https://itch.io/embed-upload/13834598">
@@ -289,9 +327,16 @@
         </script>
 
         <fos-window name="radio" title="Radio" class="zero">
-            <iframe frameborder="0" src="app/radio/index.html" title="Radio Player" allowfullscreen="yes" width="100%"
-                height="100%"></iframe>
+            <div id="wrapper-radio" style="width: 100%; height: 100%;">
+                <iframe frameborder="0" src="app/radio/index.html" title="Radio Player" allowfullscreen="yes" width="100%"
+                    height="100%"></iframe>
+            </div>
         </fos-window>
+
+        <template id="tpl-radio">
+            <iframe src="app/radio/index.html" frameborder="0" title="Radio Player" allowfullscreen="yes" width="100%"
+                height="100%"></iframe>
+        </template>
 
         <fos-window name="art3d" title="My Album" style="width: 550px; height: 450px;">
             <div class="folder-menubar">

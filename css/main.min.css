@@ -322,9 +322,9 @@ fos-menu::part(window) {
     top: 0;
     left: 0;
     background-image: url("../bg.png");
-    background-blend-mode: multiply;
     z-index: 9999;
     pointer-events: none;
+    opacity: 0.5;
 }
 
 .viewer>img {
@@ -1008,25 +1008,23 @@ fos-icon img {
     pointer-events: none;
     z-index: 1;
     background-image:
-        radial-gradient(4px 4px at 10% 10%, #fff, transparent),
-        radial-gradient(6px 6px at 20% 30%, #fff, transparent),
-        radial-gradient(3px 3px at 40% 70%, #fff, transparent),
-        radial-gradient(4px 4px at 50% 10%, #fff, transparent),
-        radial-gradient(3px 3px at 80% 40%, #fff, transparent),
-        radial-gradient(6px 6px at 90% 80%, #fff, transparent),
-        radial-gradient(4px 4px at 15% 60%, #fff, transparent);
-    background-size: 550px 550px;
-    animation: snowfall 10s linear infinite;
-    opacity: 0.8;
+        radial-gradient(3px 3px at 20% 30%, #fff, transparent),
+        radial-gradient(3px 3px at 50% 80%, #fff, transparent),
+        radial-gradient(4px 4px at 90% 10%, #fff, transparent);
+    
+    background-size: 800px 800px;
+    
+    animation: snowfall 15s linear infinite;
+    opacity: 0.6;
 }
 
 @keyframes snowfall {
     0% {
-        background-position: 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0;
+        background-position: 0 0, 0 0, 0 0;
     }
 
     100% {
-        background-position: 50px 550px, -20px 550px, 30px 550px, -40px 550px, 10px 550px, -30px 550px, 20px 550px;
+        background-position: 50px 800px, -30px 800px, 20px 800px;
     }
 }
 
